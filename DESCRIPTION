@@ -8,6 +8,29 @@ Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Depends: R (>= 3.5.0)
+SystemRequirements: GDAL (>= 2.0.1)
+Imports:
+    ALA4R,
+    data.table, 
+    dplyr,
+    esquisse,
+    geosphere (>= 1.5),
+    leaflet (>= 2.0),
+    lubridate (>= 1.7.4),
+    magrittr,
+    rgeos (>= 0.4),
+    rgdal (>= 1.4),
+    rlang,
+    sf (>= 0.7),
+    sp (>= 1.3),
+    stringr (>= 1.4),
+    xts
+Suggests: 
+    knitr, 
+    testthat
+RoxygenNote: 7.1.0
+VignetteBuilder: knitr
