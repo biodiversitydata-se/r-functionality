@@ -5,11 +5,11 @@
 #' @references Associated web services: \url{https://layers.nbnatlas.org/ws}
 #' @references \url{http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html}
 #' 
-#' @param taxon string: the identifier to get the species data from the nbn biocache. E.g. "genus:Macropus". See \code{nbn_fields("occurrence_stored")} for valid field names
+#' @param taxon string: the identifier to get the species data from the nbn biocache. E.g. "genus:Macropus". See \code{sbdi_fields("occurrence_stored")} for valid field names
 #' @param wkt string: Bounding area in Well Known Text (WKT) format. E.g. "POLYGON((-3 56,-4 56,-4 57,-3 57,-3 56))".
 #' @param gridsize numeric: size of output grid cells in decimal degrees. E.g. 0.1 (=~10km)
 #' @param SPdata.frame logical: should the output be returned as a SpatialPointsDataFrame of the sp package?
-#' @param verbose logical: show additional progress information? [default is set by nbn_config()]
+#' @param verbose logical: show additional progress information? [default is set by sbdi_config()]
 #' @return A dataframe or a SpatialPointsDataFrame containing the species by sites data. Columns will include longitude, latitude, and each species present. Values for species are record counts (i.e. number of recorded occurrences of that taxon in each grid cell). The \code{guid} attribute of the data frame gives the guids of the species (columns) as a named character vector
 #'
 #' @examples
@@ -35,7 +35,7 @@
 ## fails: ss <- sites_by_species(taxon="parentGuid:http://id.biodiversity.org.au/node/apni/6337078",wkt="POLYGON((144 -43,148 -43,148 -40,144 -40,144 -43))",verbose=TRUE)
 
 #' #@export
-sites_by_species <- function(taxon, wkt, gridsize = 0.1, SPdata.frame = FALSE, verbose = nbn_config()$verbose) {
+sites_by_species <- function(taxon, wkt, gridsize = 0.1, SPdata.frame = FALSE, verbose = sbdi_config()$verbose) {
   
   ALA4R::sites_by_species(taxon, wkt, gridsize, SPdata.frame, verbose )
   
