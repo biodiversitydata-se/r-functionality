@@ -79,7 +79,7 @@ occurrences <- function(taxon, wkt, fq, fields, extra, qa, email,
                         verbose = sbdi_config()$verbose, record_count_only = FALSE,
                         use_layer_names = TRUE, use_data_table = TRUE) {
     
-    ALA4R::occurrences(taxon, wkt, fq, fields, extra, qa, email,
+    ALA4R::occurrences(taxon, wkt, fq, fields, extra, qa, method="offline", email,
                        download_reason_id, reason,
                        verbose, record_count_only,
                        use_layer_names, use_data_table)
