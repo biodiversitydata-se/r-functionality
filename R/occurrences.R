@@ -27,7 +27,7 @@
 #' are not guaranteed to retain the ordering of the field names given here. If not specified, a default list of fields will be returned. See \code{sbdi_fields("occurrence_stored")} for valid field names with method \code{indexed}, and \code{sbdi_fields("occurrence")} for valid field names with method \code{offline}. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{fields="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length
 #' @param extra string vector: (optional) a vector of field names to include in addition to those specified in \code{fields}. This is useful if you would like the default list of fields (i.e. when \code{fields} parameter is not specified) plus some additional extras. See \code{sbdi_fields("occurrence_stored",as_is=TRUE)} for valid field names. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{extra="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length
 #' @param qa string vector: (optional) list of record issues to include in the download. Use \code{qa="all"} to include all available issues, or \code{qa="none"} to include none. Otherwise see \code{sbdi_fields("assertions",as_is=TRUE)} for valid values
-#' @param method string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned
+#' @param method DEPRECATED in ALA4R. string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned
 #' @param email string: the email address of the user performing the download (required for \code{method="offline"}
 #' @param download_reason_id numeric or string: (required unless record_count_only is TRUE) a reason code for the download, either as a numeric ID (currently 0--11) or a string (see \code{\link{sbdi_reasons}} for a list of valid ID codes and names). The download_reason_id can be passed directly to this function, or alternatively set using \code{sbdi_config(download_reason_id=...)}
 #' @param reason string: (optional) user-supplied description of the reason for the download. Providing this information is optional but will help the NBN to better support users by building a better understanding of user communities and their data requests
@@ -79,7 +79,7 @@ occurrences <- function(taxon, wkt, fq, fields, extra, qa, email,
                         verbose = sbdi_config()$verbose, record_count_only = FALSE,
                         use_layer_names = TRUE, use_data_table = TRUE) {
     
-    ALA4R::occurrences(taxon, wkt, fq, fields, extra, qa, email,
+    ALA4R::occurrences(taxon, wkt, fq, fields, extra, qa, method = "indexed", email,
                        download_reason_id, reason,
                        verbose, record_count_only,
                        use_layer_names, use_data_table)
