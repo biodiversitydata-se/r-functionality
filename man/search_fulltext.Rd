@@ -19,7 +19,7 @@ search_fulltext(
 
 \item{fq}{string: (optional) character string or vector of strings, specifying filters to be applied to the 
 original query. These are of the form "INDEXEDFIELD:VALUE" e.g. "rk_kingdom:Fungi". 
-See \code{nbn_fields("general")} for all the fields that are queryable. 
+See \code{sbdi_fields("general")} for all the fields that are queryable. 
 NOTE that fq matches are case-sensitive, but sometimes the entries in the fields are 
 not consistent in terms of case (e.g. kingdom names "Fungi" and "Plantae" but "ANIMALIA"). 
 fq matches are ANDed by default (e.g. c("field1:abc","field2:def") will match records that have 
@@ -31,7 +31,7 @@ field1 value "abc" and field2 value "def"). To obtain OR behaviour, use the form
 
 \item{page_size}{numeric: (optional) (positive integer) maximum number of records to return. Defaults to the server-side value - currently 10}
 
-\item{sort_by}{string: (optional) field to sort on. See \code{nbn_fields("general")} for valid field names}
+\item{sort_by}{string: (optional) field to sort on. See \code{sbdi_fields("general")} for valid field names}
 
 \item{sort_dir}{string: (optional) sort direction, either "asc" or "desc"}
 }
@@ -56,5 +56,5 @@ Performs a search across all objects, and selects the closest matches. Generally
 Associated NBN web service: \url{https://species-ws.nbnatlas.org/}
 }
 \seealso{
-\code{\link{nbn_fields}}
+\code{\link{sbdi_fields}}
 }
