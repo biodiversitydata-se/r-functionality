@@ -1,9 +1,9 @@
 #' Retrieves a list of all field names that can be used with data retrieval functions
 #'
-#' Note for occurrence fields: only fields that are indexed in the NBN database can be queried (e.g. used in the \code{fq} parameter in \code{\link{occurrences}}. These fields are identified by the \code{indexed} column in \code{nbn_fields("occurrence")}. Only fields that are stored in the database can be returned as part of an \code{occurrences} call. These fields are identified by the \code{stored} column in \code{nbn_fields("occurrence")}. The calling syntaxes \code{nbn_fields("occurrence_stored")} and \code{nbn_fields("occurrence_indexed")} are for convenience, and are equivalent to \code{subset(nbn_fields("occurrence"),stored)} and \code{subset(nbn_fields("occurrence"),indexed)}.
+#' Note for occurrence fields: only fields that are indexed in the NBN database can be queried (e.g. used in the \code{fq} parameter in \code{\link{occurrences}}. These fields are identified by the \code{indexed} column in \code{sbdi_fields("occurrence")}. Only fields that are stored in the database can be returned as part of an \code{occurrences} call. These fields are identified by the \code{stored} column in \code{sbdi_fields("occurrence")}. The calling syntaxes \code{sbdi_fields("occurrence_stored")} and \code{sbdi_fields("occurrence_indexed")} are for convenience, and are equivalent to \code{subset(sbdi_fields("occurrence"),stored)} and \code{subset(sbdi_fields("occurrence"),indexed)}.
 #' 
 #' @references Relevant ALA web services: \itemize{
-#' \item for fields_type "occurrence": https://api.nbnatlas.org/#ws72
+#' \item for fields_type "occurrence": https://api.sbdiatlas.org/#ws72
 #' \item for fields_type "general": https://api.nbnatlas.org/#ws88
 #' \item for fields_type "layers": https://api.nbnatlas.org/#ws11 (see also descriptions of the spatial layers: \url{https://layers.nbnatlas.org/layers/})
 #' \item for fields_type "assertions": https://api.nbnatlas.org/#ws81
@@ -13,8 +13,8 @@
 #' \itemize{
 #' \item "general" - for searching taxa, datasets, layers, and collections metadata
 #' \item "occurrence" - for species occurrence records
-#' \item "occurrence_stored" - can be returned as part of a species occurrence record search (equivalant to \code{subset(nbn_fields("occurrences"),stored)})
-#' \item "occurrence_indexed" - can be queried as part of a species occurrence record search (equivalant to \code{subset(nbn_fields("occurrences"),indexed)})
+#' \item "occurrence_stored" - can be returned as part of a species occurrence record search (equivalant to \code{subset(sbdi_fields("occurrences"),stored)})
+#' \item "occurrence_indexed" - can be queried as part of a species occurrence record search (equivalant to \code{subset(sbdi_fields("occurrences"),indexed)})
 #' \item "layers" - fields associated with the environmental and contextual layers. For additional information 
 #' on layers, including metadata and licensing, see \code{\link{search_layers}}
 #' \item "assertions" - potential issues flagged on one or more occurrence record fields
@@ -28,27 +28,27 @@
 #' @return If \code{record_count_only} is TRUE, the number of records is returned as numeric. Otherwise, a data frame containing the field name and various attributes; an empty data frame is returned if no match is found
 #' @examples
 #' \dontrun{
-#'  l <- nbn_fields("layers")
+#'  l <- sbdi_fields("layers")
 #'  l[,4]
-#'  o <- nbn_fields("occurrence")
+#'  o <- sbdi_fields("occurrence")
 #'  o[1:13,]
-#'  a <- nbn_fields("assertions")
+#'  a <- sbdi_fields("assertions")
 #'  a$description
 #'  field_info("cl22")
 #'  field_info("el773")
 #' }
-#' @export nbn_fields
+#' @export sbdi_fields
 
 # TODO: Summary of #fields returned
-# ids from https://layers.nbnatlas.org/ws/layers are NUMERIC but lookup prepends "el" and "cl"! 
+# ids from https://layers.sbdiatlas.org/ws/layers are NUMERIC but lookup prepends "el" and "cl"! 
 
-nbn_fields <- function(fields_type, as_is=TRUE) {
+sbdi_fields <- function(fields_type, as_is=TRUE) {
   
   ALA4R::ala_fields(fields_type,as_is)
     
 }
 
-#' @rdname nbn_fields
+#' @rdname sbdi_fields
 #' @export
 field_info  <-  function(field_id,maxrows=50, record_count_only=FALSE) {
  

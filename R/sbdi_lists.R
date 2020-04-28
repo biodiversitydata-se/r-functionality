@@ -9,19 +9,19 @@
 #'
 #' @return data.frame
 #'
-#' @seealso \code{\link{specieslist}} \code{\link{nbn_lists}}
+#' @seealso \code{\link{specieslist}} \code{\link{sbdi_lists}}
 #'
 #' @examples
 #' \dontrun{
-#'  all_lists <- nbn_lists()
+#'  all_lists <- sbdi_lists()
 #'  ## find the "Field Guide apps species profiles" from Museum Victoria
 #'  all_lists[grep("Field Guide",all_lists$listName),]
 #'  ## download the vertebrates one
-#'  l <- nbn_list(druid="dr1146")
+#'  l <- sbdi_list(druid="dr1146")
 #' }
 #'
 #' @export
-nbn_list <- function(druid,kvp=TRUE,verbose=nbn_config()$verbose){
+sbdi_list <- function(druid,kvp=TRUE,verbose=sbdi_config()$verbose){
   
   ALA4R::ala_list(druid,kvp,verbose)
 }
@@ -37,17 +37,17 @@ nbn_list <- function(druid,kvp=TRUE,verbose=nbn_config()$verbose){
 #'
 #' @return data.frame of list name and other details
 #'
-#' @seealso \code{\link{nbn_list}}
+#' @seealso \code{\link{sbdi_list}}
 #'
 #' @examples
 #' \dontrun{
 #'  ## lists that include the giant African snail Achatina fulica
 #'  ##  (which is a notifiable pest species in some states)
-#'  l <- nbn_lists(search_guids("Achatina fulica")$guid)
+#'  l <- sbdi_lists(search_guids("Achatina fulica")$guid)
 #' }
 #'
 #' @export
-nbn_lists <- function(guid,offset=0,max=500,verbose=nbn_config()$verbose) {
+sbdi_lists <- function(guid,offset=0,max=500,verbose=sbdi_config()$verbose) {
   
  ALA4R::ala_lists(guid,offset,max,verbose) 
   

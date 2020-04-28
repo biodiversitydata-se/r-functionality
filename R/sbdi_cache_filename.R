@@ -2,16 +2,16 @@
 #' may not actually exist, this function just provides the mapping from URL to filename
 #' 
 #' @references \url{https://api.nbnatlas.org/}
-#' @seealso \code{nbn_config} for cache settings, particularly the cache directory
+#' @seealso \code{sbdi_config} for cache settings, particularly the cache directory
 #'  
 #' @param url string: the URL
 #' @return string: the file path and name
 #' 
 #' @examples
-#' nbn_cache_filename("https://records-ws.nbnatlas.org/index/fields")
+#' sbdi_cache_filename("https://fieldguide.bioatlas.se/")
 #' 
-#' @export nbn_cache_filename
-nbn_cache_filename <- function(url){
+#' @export sbdi_cache_filename
+sbdi_cache_filename <- function(url){
   
   ALA4R::ala_cache_filename(url)
 } 
