@@ -1,0 +1,64 @@
+#' Get or set configuration options that control NBN4R behaviour
+#'
+#' @references \url{https://api.nbnatlas.org/}
+#' @references \url{https://layers.nbnatlas.org/layers/} this will eventually move to the api link
+#'
+#' Invoking \code{nbn_config()} with no arguments returns a list with the current values of the options.
+#'
+#' \code{nbn_reasons()} returns a data frame with information describing the valid options for \code{download_reason_id}
+#'
+#' @param \dots Options can be defined using name=value. Valid options are:
+#' \itemize{
+#'   \item reset: \code{nbn_config("reset")} will reset the options to their default values
+#'   \item caching string: caching can be
+#'     "on" (results will be cached, and any cached results will be re-used),
+#'     "refresh" (cached results will be refreshed and the new results stored in the cache), or
+#'     "off" (no caching, default).
+#'   \item cache_directory string: the directory to use for the cache.
+#'     By default this is a temporary directory, which means that results will only be cached
+#'     within an R session and cleared automatically when the user exits R. The user may wish to set this to a non-temporary directory for
+#'     caching across sessions. The directory must exist on the file system.
+#'   \item verbose logical: should NBN4R give verbose output to assist debugging?  (default=FALSE)
+#'   \item warn_on_empty logical: should a warning be issued if a request returns an empty result set? (default=FALSE)
+#'   \item user_agent string: the user-agent string used with all web requests to the NBN servers.
+#'     Default = "NBN4R" with version number
+#'   \item text_encoding string: text encoding assumed when reading cached files from local disk (default="UTF-8")
+#'   \item download_reason_id numeric or string: the "download reason" required by some NBN services, either as a numeric ID (currently 0--11)
+#'   or a string (see \code{nbn_reasons()} for a list of valid ID codes and names). By default this is NA. Some NBN services require a valid
+#'   download_reason_id code, either specified here or directly to the associated R function.
+#' }
+#'
+#' @return For nbn_config(), a list of all options. When nbn_config(...) is
+#' called with arguments, nothing is returned but the configuration is set.
+#'
+#' @examples
+#' \dontrun{
+#'  nbn_config()
+#'  nbn_config(caching="off")
+#'  nbn_config()
+#'  nbn_config(download_reason_id=0,verbose=TRUE)
+#'  nbn_config("reset")
+#' }
+#' @export nbn_config
+nbn_config <- function(...) {
+  
+  ALA4R::ala_config(...)
+}
+
+#' @rdname nbn_config
+#' @export
+nbn_reasons <- function() {
+  ALA4R::ala_reasons()
+}
+
+
+## internal function, used to define the ALA4R sourceTypeId parameter value, passed by occurrences download and possibly other functions
+nbn_sourcetypeid <- function() {
+  ALA4R:::ala_sourcetypeid()
+}
+
+
+convert_reason <- function(reason) {
+  ## unexported function to convert string reason to numeric id
+ ALA4R:::convert_reason(reason)
+}
