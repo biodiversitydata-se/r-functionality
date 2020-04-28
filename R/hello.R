@@ -30,4 +30,5 @@
 #' @export
 hello <- function() {
   print("Hello, world!")
+  1+1
 }
