@@ -11,11 +11,10 @@ occurrences(
   fields,
   extra,
   qa,
-  method = "indexed",
   email,
-  download_reason_id = nbn_config()$download_reason_id,
+  download_reason_id = sbdi_config()$download_reason_id,
   reason,
-  verbose = nbn_config()$verbose,
+  verbose = sbdi_config()$verbose,
   record_count_only = FALSE,
   use_layer_names = TRUE,
   use_data_table = TRUE
@@ -26,14 +25,14 @@ occurrences(
 a free-text search is equivalent to specifying the "text" field (i.e. \code{taxon="Alaba"} is equivalent to \code{taxon="text:Alaba"}. 
 The text field is populated with the taxon name along with a handful of other commonly-used fields, and so just specifying your target
 taxon (e.g. taxon="Alaba vibex") will probably work. 
-However, for reliable results it is recommended to use a specific field where possible (see \code{nbn_fields("occurrence_indexed")}
+However, for reliable results it is recommended to use a specific field where possible (see \code{sbdi_fields("occurrence_indexed")}
 for valid fields). It is also good practice to quote the taxon name if it contains multiple words, for example
 \code{taxon="taxon_name:\"Alaba vibex\""}}
 
 \item{wkt}{string: (optional) a WKT (well-known text) string providing a spatial polygon within which to search, e.g. "POLYGON((140 -37,151 -37,151 -26,140.131 -26,140 -37))"}
 
 \item{fq}{string: (optional) character string or vector of strings, specifying filters to be applied to the original query. These are of the form "INDEXEDFIELD:VALUE" e.g. "kingdom:Fungi". 
-See \code{nbn_fields("occurrence_indexed",as_is=TRUE)} for all the fields that are queryable. 
+See \code{sbdi_fields("occurrence_indexed",as_is=TRUE)} for all the fields that are queryable. 
 NOTE that fq matches are case-sensitive, but sometimes the entries in the fields are 
 not consistent in terms of case (e.g. kingdom names "Fungi" and "Plantae" but "ANIMALIA"). 
 fq matches are ANDed by default (e.g. c("field1:abc","field2:def") will match records that have 
@@ -41,27 +40,27 @@ field1 value "abc" and field2 value "def"). To obtain OR behaviour, use the form
 OR field2:def"). See e.g. \url{http://wiki.apache.org/solr/CommonQueryParameters} for more information about filter queries}
 
 \item{fields}{string vector: (optional) a vector of field names to return. Note that the columns of the returned data frame 
-are not guaranteed to retain the ordering of the field names given here. If not specified, a default list of fields will be returned. See \code{nbn_fields("occurrence_stored")} for valid field names with method \code{indexed}, and \code{nbn_fields("occurrence")} for valid field names with method \code{offline}. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{fields="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
+are not guaranteed to retain the ordering of the field names given here. If not specified, a default list of fields will be returned. See \code{sbdi_fields("occurrence_stored")} for valid field names with method \code{indexed}, and \code{sbdi_fields("occurrence")} for valid field names with method \code{offline}. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{fields="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
 
-\item{extra}{string vector: (optional) a vector of field names to include in addition to those specified in \code{fields}. This is useful if you would like the default list of fields (i.e. when \code{fields} parameter is not specified) plus some additional extras. See \code{nbn_fields("occurrence_stored",as_is=TRUE)} for valid field names. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{extra="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
+\item{extra}{string vector: (optional) a vector of field names to include in addition to those specified in \code{fields}. This is useful if you would like the default list of fields (i.e. when \code{fields} parameter is not specified) plus some additional extras. See \code{sbdi_fields("occurrence_stored",as_is=TRUE)} for valid field names. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{extra="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
 
-\item{qa}{string vector: (optional) list of record issues to include in the download. Use \code{qa="all"} to include all available issues, or \code{qa="none"} to include none. Otherwise see \code{nbn_fields("assertions",as_is=TRUE)} for valid values}
-
-\item{method}{string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned}
+\item{qa}{string vector: (optional) list of record issues to include in the download. Use \code{qa="all"} to include all available issues, or \code{qa="none"} to include none. Otherwise see \code{sbdi_fields("assertions",as_is=TRUE)} for valid values}
 
 \item{email}{string: the email address of the user performing the download (required for \code{method="offline"}}
 
-\item{download_reason_id}{numeric or string: (required unless record_count_only is TRUE) a reason code for the download, either as a numeric ID (currently 0--11) or a string (see \code{\link{nbn_reasons}} for a list of valid ID codes and names). The download_reason_id can be passed directly to this function, or alternatively set using \code{nbn_config(download_reason_id=...)}}
+\item{download_reason_id}{numeric or string: (required unless record_count_only is TRUE) a reason code for the download, either as a numeric ID (currently 0--11) or a string (see \code{\link{sbdi_reasons}} for a list of valid ID codes and names). The download_reason_id can be passed directly to this function, or alternatively set using \code{sbdi_config(download_reason_id=...)}}
 
 \item{reason}{string: (optional) user-supplied description of the reason for the download. Providing this information is optional but will help the NBN to better support users by building a better understanding of user communities and their data requests}
 
-\item{verbose}{logical: show additional progress information? [default is set by nbn_config()]}
+\item{verbose}{logical: show additional progress information? [default is set by sbdi_config()]}
 
 \item{record_count_only}{logical: if TRUE, return just the count of records that would be downloaded, but don't download them. Note that the record count is always re-retrieved from the NBN, regardless of the caching settings. If a cached copy of this query exists on the local machine, the actual data set size may therefore differ from this record count. \code{record_count_only=TRUE} can only be used with \code{method="indexed"}}
 
 \item{use_layer_names}{logical: if TRUE, layer names will be used as layer column names in the returned data frame (e.g. "watsonianViceCounties"). Otherwise, layer id value will be used for layer column names (e.g. "cl23")}
 
 \item{use_data_table}{logical: if TRUE, attempt to read the data.csv file using the fread function from the data.table package. Requires data.table to be available. If this fails with an error or warning, or if use_data_table is FALSE, then read.table will be used (which may be slower)}
+
+\item{method}{string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned}
 }
 \value{
 Data frame of occurrence results, with one row per occurrence record. The columns of the dataframe will depend on the requested fields
@@ -77,7 +76,7 @@ x <- occurrences(taxon="data_resource_uid:dr356",record_count_only=TRUE)
 x <- occurrences(taxon="data_resource_uid:dr356",download_reason_id=10)
 ## download records, with all fields
 x <- occurrences(taxon="data_resource_uid:dr356",download_reason_id=10,
-  fields=nbn_fields("occurrence_stored",as_is=TRUE)$name) 
+  fields=sbdi_fields("occurrence_stored",as_is=TRUE)$name) 
 ## download records, with specified fields
 x <- occurrences(taxon="genus:macropus",fields=c("longitude","latitude",
   "common_name","taxon_name","Rights"),download_reason_id=10)
@@ -88,14 +87,14 @@ download_reason_id=10,qa="none",verbose = T)
 y <- occurrences(taxon="taxon_name:\"Sialis lutaria\"",fields=c("latitude","longitude","collector"),
 download_reason_id=10)
 str(y)
-# equivalent direct webservice call [see this by setting nbn_config(verbose=TRUE)]:
+# equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
 # https://records-ws.nbnatlas.org/occurrences/index/download?q=taxon_name\%
 # 3A\%22Sialis\%20lutaria\%22&fields=latitude\%2Clongitude\%2Cbasis_of_record&
 # reasonTypeId=10&sourceTypeId=2001&esc=\%5C&sep=\%09&file=data
 
 occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"),
   qa="none",fq="collector:Unknown",download_reason_id=10)
-# equivalent direct webservice call [see this by setting nbn_config(verbose=TRUE)]:
+# equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
 # https://records-ws.nbnatlas.org/occurrences/index/download?reasonTypeId=10&q=*:*&
 # fq=genus:Vulpes&lat=51.5074&lon=0.1278&radius=10.0&qa=none&fields=latitude,longitude&
 # reasonTypeId=10&sourceTypeId=2001 
@@ -110,5 +109,5 @@ occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"
 }
 }
 \seealso{
-\code{\link{nbn_reasons}} for download reasons; \code{\link{nbn_config}}
+\code{\link{sbdi_reasons}} for download reasons; \code{\link{sbdi_config}}
 }

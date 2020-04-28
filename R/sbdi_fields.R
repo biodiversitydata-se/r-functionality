@@ -3,7 +3,7 @@
 #' Note for occurrence fields: only fields that are indexed in the NBN database can be queried (e.g. used in the \code{fq} parameter in \code{\link{occurrences}}. These fields are identified by the \code{indexed} column in \code{sbdi_fields("occurrence")}. Only fields that are stored in the database can be returned as part of an \code{occurrences} call. These fields are identified by the \code{stored} column in \code{sbdi_fields("occurrence")}. The calling syntaxes \code{sbdi_fields("occurrence_stored")} and \code{sbdi_fields("occurrence_indexed")} are for convenience, and are equivalent to \code{subset(sbdi_fields("occurrence"),stored)} and \code{subset(sbdi_fields("occurrence"),indexed)}.
 #' 
 #' @references Relevant ALA web services: \itemize{
-#' \item for fields_type "occurrence": https://api.sbdiatlas.org/#ws72
+#' \item for fields_type "occurrence": https://api.nbnatlas.org/#ws72
 #' \item for fields_type "general": https://api.nbnatlas.org/#ws88
 #' \item for fields_type "layers": https://api.nbnatlas.org/#ws11 (see also descriptions of the spatial layers: \url{https://layers.nbnatlas.org/layers/})
 #' \item for fields_type "assertions": https://api.nbnatlas.org/#ws81

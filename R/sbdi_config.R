@@ -42,7 +42,14 @@
 #' @export sbdi_config
 sbdi_config <- function(...) {
   
+  ## TODO we may want to change the user agent so that the queries are registred as SBDI4R
+  ## default user-agent string
+  # version_string <- "version unknown"
+  # suppressWarnings(try(version_string<-utils::packageDescription('SDBI4R')[["Version"]],silent=TRUE)) ## get the pckg version, if we can
+  # user_agent_string <- paste0("SBDI4R ",version_string)
+  # ALA4R::ala_config(user_agent=user_agent_string,...)
   ALA4R::ala_config(...)
+  
 }
 
 #' @rdname sbdi_config
