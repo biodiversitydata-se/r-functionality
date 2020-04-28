@@ -11,9 +11,9 @@ getArtfakturaResources <- function() {
 
 constructQueryURL <- function(resource, queryTerm='', queryValue='') {
   baseURL <- "https://api.artdatabanken.se/information/v1/speciesdataservice/v1/speciesdata/"
-  url <- paste(baseURL, 'resource')
-  if(query != '') {
-    url <- paste(url, '?', queryTerm, '=', queryValue)
+  url <- paste0(baseURL, resource)
+  if(queryTerm != '') {
+    url <- paste0(url, '?', queryTerm, '=', queryValue)
   }
   return(url)
 }
