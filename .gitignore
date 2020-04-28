@@ -4,3 +4,6 @@
 .Ruserdata
 packrat/lib*/
 packrat/src/
+sbdi4r.Rcheck/
+sbdi4r*.tar.gz
+sbdi4r*.tgz
