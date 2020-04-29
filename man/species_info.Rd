@@ -27,7 +27,7 @@ Fetch a taxon profile given a scientific name or LSID (GUID)
 }
 }
 \references{
-Associated NBN web service: \url{https://api.nbnatlas.org/#ws80}
+Associated SBDI web service: \url{https://api.nbnatlas.org/#ws80}
 }
 \seealso{
 \code{\link{nbn_config}}

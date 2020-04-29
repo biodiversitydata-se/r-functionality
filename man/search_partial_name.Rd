@@ -27,7 +27,7 @@ search_partial_name(
 A dataframe of results. The contents (column names) of the data frame will vary depending on the details of the search and the results.
 }
 \description{
-A partial-name search for species names & identifiers used at the NBN. If searching for a taxon name, and the scientific name or common name of the taxon are known, use \code{\link{search_names}} instead.
+A partial-name search for species names & identifiers used at the SBDI. If searching for a taxon name, and the scientific name or common name of the taxon are known, use \code{\link{search_names}} instead.
 }
 \examples{
 \dontrun{
@@ -39,7 +39,7 @@ search_partial_name("Abac",geo_only=TRUE)
 }
 }
 \references{
-Associated NBN web service: \url{https://api.nbnatlas.org/#ws25}
+Associated SBDI web service: \url{https://api.nbnatlas.org/#ws25}
 }
 \seealso{
 \code{\link{search_names}} for searching known scientific or common taxonomic names

@@ -50,11 +50,11 @@ are not guaranteed to retain the ordering of the field names given here. If not 
 
 \item{download_reason_id}{numeric or string: (required unless record_count_only is TRUE) a reason code for the download, either as a numeric ID (currently 0--11) or a string (see \code{\link{sbdi_reasons}} for a list of valid ID codes and names). The download_reason_id can be passed directly to this function, or alternatively set using \code{sbdi_config(download_reason_id=...)}}
 
-\item{reason}{string: (optional) user-supplied description of the reason for the download. Providing this information is optional but will help the NBN to better support users by building a better understanding of user communities and their data requests}
+\item{reason}{string: (optional) user-supplied description of the reason for the download. Providing this information is optional but will help the SBDI to better support users by building a better understanding of user communities and their data requests}
 
 \item{verbose}{logical: show additional progress information? [default is set by sbdi_config()]}
 
-\item{record_count_only}{logical: if TRUE, return just the count of records that would be downloaded, but don't download them. Note that the record count is always re-retrieved from the NBN, regardless of the caching settings. If a cached copy of this query exists on the local machine, the actual data set size may therefore differ from this record count. \code{record_count_only=TRUE} can only be used with \code{method="indexed"}}
+\item{record_count_only}{logical: if TRUE, return just the count of records that would be downloaded, but don't download them. Note that the record count is always re-retrieved from the SBDI, regardless of the caching settings. If a cached copy of this query exists on the local machine, the actual data set size may therefore differ from this record count. \code{record_count_only=TRUE} can only be used with \code{method="indexed"}}
 
 \item{use_layer_names}{logical: if TRUE, layer names will be used as layer column names in the returned data frame (e.g. "watsonianViceCounties"). Otherwise, layer id value will be used for layer column names (e.g. "cl23")}
 
@@ -66,7 +66,7 @@ are not guaranteed to retain the ordering of the field names given here. If not 
 Data frame of occurrence results, with one row per occurrence record. The columns of the dataframe will depend on the requested fields
 }
 \description{
-Retrieve NBN occurrence data via the "occurrence download" web service. At least one of \code{taxon}, \code{wkt}, or \code{fq} must be supplied for a valid query. Note that there is a limit of 500000 records per request when using \code{method="indexed"}. Use the \code{method="offline"} for larger requests. For small requests, \code{method="indexed"} likely to be faster.
+Retrieve SBDI occurrence data via the "occurrence download" web service. At least one of \code{taxon}, \code{wkt}, or \code{fq} must be supplied for a valid query. Note that there is a limit of 500000 records per request when using \code{method="indexed"}. Use the \code{method="offline"} for larger requests. For small requests, \code{method="indexed"} likely to be faster.
 }
 \examples{
 \dontrun{
@@ -102,8 +102,8 @@ occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"
 }
 \references{
 \itemize{
-\item Associated NBN web service for record counts: \url{https://api.nbnatlas.org/#ws3}
-\item Associated NBN web service for occurence downloads: \url{https://api.nbnatlas.org/#ws4}
+\item Associated SBDI web service for record counts: \url{https://api.nbnatlas.org/#ws3}
+\item Associated SBDI web service for occurence downloads: \url{https://api.nbnatlas.org/#ws4}
 \item Field definitions: \url{https://docs.google.com/spreadsheet/ccc?key=0AjNtzhUIIHeNdHhtcFVSM09qZ3c3N3ItUnBBc09TbHc}
 \item WKT reference: \url{http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html}
 }

@@ -6,9 +6,9 @@
 \title{\pkg{SBDI4R}}
 \description{
 REWRITE This project enables the R community to access data and tools hosted by the 
-NBN Atlas. The goal of the project is to enable basic species and related
+SBDI Atlas. The goal of the project is to enable basic species and related
 information to be queried and output in standard formats for R. 
-NBN4R is based around the extensive web services provided 
+SBDI4R is based around the extensive web services provided 
 by the Atlas; see the API link below.
 }
 \references{

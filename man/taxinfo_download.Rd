@@ -52,7 +52,7 @@ x <- taxinfo_download("rk_family:Fabaceae",fields=c("guid","parentGuid","rk_king
 }
 }
 \references{
-Associated NBN web service: \url{https://api.nbnatlas.org/#ws2}
+Associated SBDI web service: \url{https://api.nbnatlas.org/#ws2}
 }
 \seealso{
 \code{\link{nbn_fields}}, \code{\link{nbn_config}}

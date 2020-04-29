@@ -27,7 +27,7 @@ search_layers(type="shapes",query="park",output_format="simple")
 }
 }
 \references{
-Associated NBN web services: \url{https://api.nbnatlas.org/#ws11} \url{https://api.nbnatlas.org/#ws12} \url{https://api.nbnatlas.org/#ws13}
+Associated SBDI web services: \url{https://api.nbnatlas.org/#ws11} \url{https://api.nbnatlas.org/#ws12} \url{https://api.nbnatlas.org/#ws13}
 
 Descriptions of the spatial layers: \url{https://layers.nbnatlas.org/ws/layers})
 }
