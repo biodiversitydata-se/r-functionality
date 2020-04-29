@@ -42,7 +42,7 @@ unwanted_columns <- function(type) {
 
 ##----------------------------------------------------------------------------------------------
 
-rename_variables <- function(varnames,type,verbose=nbn_config()$verbose) {
+rename_variables <- function(varnames,type,verbose=sbdi_config()$verbose) {
   
  ALA4R:::rename_variables(varnames,type,verbose) 
 }

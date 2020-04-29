@@ -17,7 +17,7 @@
   temp$server_max_url_length = 8150 ## bytes, for Apache with default LimitRequestLine value of 8190, allowing 40 bytes wiggle room. Users will be warned of possible problems when URL exceeds this length
   temp$notify <- "If this problem persists please notify the SBDI4R maintainers by lodging an issue at SBDI4R github repo or emailing 'email@domain.com'" ## the string that will be displayed to users to notify the package maintainers
   temp$reasons_function = "sbdi_reasons" ## the ala_reasons or equivalent function name
-  temp$fields_function = "sbdi_fields" ## the nbn_fields or equivalent function name
+  temp$fields_function = "sbdi_fields" ## the sbdi_fields or equivalent function name
   temp$occurrences_function = "occurrences" ## the occurrences or equivalent function name
   temp$config_function = "sbdi_config" ## the ala_config or equivalent function name
   temp$base_url_spatial = "https://spatial.bioatlas.se/ws/" ## the base url for spatial web services

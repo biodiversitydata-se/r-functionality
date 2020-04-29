@@ -4,9 +4,9 @@
 #' 
 #' @param id character: IDs of images (e.g. as returned by \code{\link{occurrences}}  in the imageUrl column). Each ID will be of a format something like "84654e14-dc35-4486-9e7c-40eb2f8d3faa"
 #' @param image_number character or numeric: ID numbers of images (e.g. as returned by SBDI's image search at \url{https://images.bioatlas.se/}. Each image_number will be of a format something like 122218480
-#' @param verbose logical: show additional progress information? [default is set by nbn_config()]
+#' @param verbose logical: show additional progress information? [default is set by sbdi_config()]
 #' @return A data.frame with one row per \code{id}, and at least the columns imageIdentifier and imageURL
-#' @seealso \code{\link{nbn_config}} \code{\link{occurrences}}
+#' @seealso \code{\link{sbdi_config}} \code{\link{occurrences}}
 #' @examples
 #' \dontrun{
 #' ## Using IDs returned from occurrences() function
@@ -19,7 +19,7 @@
 #' image_info(c(image_number=5881156))
 #' }
 #' @export image_info
-image_info <- function(id, image_number, verbose = nbn_config()$verbose) {
+image_info <- function(id, image_number, verbose = sbdi_config()$verbose) {
   
   ALA4R::image_info(id, image_number, verbose)
   
