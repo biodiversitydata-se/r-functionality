@@ -27,9 +27,9 @@
 ## TODO: more extensive testing. In particular making the fields = "all" call work. Need to work on design and layout of plotly plot, current design/layout is default.
 ## TODO FUTURE: adding diversity metrics functionality e.g. calculating species richness and plot against environmental variables.
 
-scatterplot <- function(taxon, fields = "all", ...) {
+scatterplot <- function(taxon,...) {
   
-  df <- occurrences(taxon = taxon)
+  df <- occurrences(taxon = taxon, fields = "all")
   
   #Plotly - First test with lat vs. long
   plot_ly(df$data, x = ~longitude) %>%
