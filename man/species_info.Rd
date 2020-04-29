@@ -4,14 +4,14 @@
 \alias{species_info}
 \title{Fetch a taxon profile given a scientific name or LSID (GUID)}
 \usage{
-species_info(scientificname, guid, verbose = nbn_config()$verbose)
+species_info(scientificname, guid, verbose = sbdi_config()$verbose)
 }
 \arguments{
 \item{scientificname}{string: scientific name of the taxon of interest (species, genus, family etc)}
 
 \item{guid}{string: The Life Science Identifier of the taxon of interest}
 
-\item{verbose}{logical: show additional progress information? [default is set by nbn_config()]}
+\item{verbose}{logical: show additional progress information? [default is set by sbdi_config()]}
 }
 \value{
 A species profile in the form of a named list, each element of which is generally a data frame. An empty list is returned if no match is found for the supplied name or guid
@@ -30,5 +30,5 @@ Fetch a taxon profile given a scientific name or LSID (GUID)
 Associated SBDI web service: \url{https://api.bioatlas.se/#ws80}
 }
 \seealso{
-\code{\link{nbn_config}}
+\code{\link{sbdi_config}}
 }

@@ -9,19 +9,19 @@ intersect_points(
   layers,
   SPdata.frame = FALSE,
   use_layer_names = TRUE,
-  verbose = nbn_config()$verbose
+  verbose = sbdi_config()$verbose
 )
 }
 \arguments{
 \item{pnts}{numeric: vector of latitude/longitude pairs, or a 2 column data.frame or matrix of lat,lons. NOTE: the number of locations must be less than 1000.}
 
-\item{layers}{string vector: ids of layers to be intersected. The list of possible layers is available from \code{nbn_fields("layers")}. Names can be passed as full layer names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Note: if more than one location has been provided in \code{pnts}, the number of layers must be less than 700.}
+\item{layers}{string vector: ids of layers to be intersected. The list of possible layers is available from \code{sbdi_fields("layers")}. Names can be passed as full layer names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Note: if more than one location has been provided in \code{pnts}, the number of layers must be less than 700.}
 
 \item{SPdata.frame}{logical: should the output should be returned as a SpatialPointsDataFrame of the sp package or simply as a data.frame?}
 
 \item{use_layer_names}{logical: if TRUE, layer names will be used as column names in the returned data frame (e.g. "radiationLowestPeriodBio22"). Otherwise, layer id value will be used for column names (e.g. "el871")}
 
-\item{verbose}{logical: show additional progress information? [default is set by \code{\link{nbn_config}}]}
+\item{verbose}{logical: show additional progress information? [default is set by \code{\link{sbdi_config}}]}
 }
 \value{
 A SpatialPointsDataFrame containing the intersecting data information. Missing data or incorrectly identified layer id values will result in NA data
@@ -58,5 +58,5 @@ species occurrence locations.
 NOTE: batch requests (multiple points) are currently processed in a *single queue* on the SBDI servers. Processing times may be slow if there are many requests in the queue. Note also that the actual processing of batch requests is inherently slow: a large number of points may take quite some time. Be warned.
 }
 \seealso{
-\code{\link{nbn_config}}
+\code{\link{sbdi_config}}
 }

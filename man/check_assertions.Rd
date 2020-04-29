@@ -18,7 +18,7 @@ This provides a data.frame detailing the assertions that are found in a dataset 
 \examples{
 #download species data with all possible assertions
 \dontrun{
- x <- occurrences(taxon="golden plover",download_reason_id=10,qa=nbn_fields("assertions")$name)
+ x <- occurrences(taxon="golden plover",download_reason_id=10,qa=sbdi_fields("assertions")$name)
  asserts <- check_assertions(x) #data.frame of assertions, their description and column names
  asserts$description # List out descriptions of all (current) assertions
 
