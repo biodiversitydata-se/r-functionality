@@ -1,7 +1,7 @@
 #' Get or set configuration options that control sbdi4R behaviour
 #'
-#' @references \url{https://api.nbnatlas.org/}
-#' @references \url{https://layers.nbnatlas.org/layers/} this will eventually move to the api link
+#' @references \url{https://api.bioatlas.se/}
+#' @references \url{https://layers.bioatlas.se/layers/} this will eventually move to the api link
 #'
 #' Invoking \code{sbdi_config()} with no arguments returns a list with the current values of the options.
 #'
