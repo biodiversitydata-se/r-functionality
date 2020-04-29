@@ -3,7 +3,7 @@
 #' Provides GUID, taxonomic classification, and other information for a list of names. 
 #' Case-insensitive but otherwise exact matches are used.
 #'
-#' @references The associated SBDI web service: \url{https://api.nbnatlas.org/#ws87}
+#' @references The associated SBDI web service: \url{https://api.bioatlas.se/#ws87}
 #' 
 #' @param taxa string: a single name or vector of names
 #' @param vernacular logical: if TRUE, match on common names as well as scientific names, otherwise match only on scientific names

@@ -2,7 +2,7 @@
 #'
 #' This provides a data.frame detailing the assertions that are found in a dataset returned from \code{\link{occurrences}}.
 #'
-#' @references \url{https://api.nbnatlas.org/}, \samp{http://biocache.ala.org.au/ws/assertions/codes}
+#' @references \url{https://api.bioatlas.se/}, \samp{http://records.bioatlas.se/ws/assertions/codes}
 #'  
 #' @param x list: an object returned from \code{\link{occurrences}}
 #' 

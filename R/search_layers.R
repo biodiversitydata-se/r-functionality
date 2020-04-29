@@ -1,7 +1,7 @@
 #' Search for environmental and contextual data layers
 #' 
-#' @references Associated SBDI web services: \url{https://api.nbnatlas.org/#ws11} \url{https://api.nbnatlas.org/#ws12} \url{https://api.nbnatlas.org/#ws13}
-#' @references Descriptions of the spatial layers: \url{https://layers.nbnatlas.org/ws/layers})
+#' @references Associated SBDI web services: \url{https://api.bioatlas.se/#ws11} \url{https://api.bioatlas.se/#ws12} \url{https://api.bioatlas.se/#ws13}
+#' @references Descriptions of the spatial layers: \url{https://spatial.bioatlas.se/ws/layers})
 #'
 #' @param query text string: optional search term against layer metadata. Only layers that include this term in their metadata will be returned.
 #' @param type string: either "all" (all possible layers; default), "grids" (gridded environmental layers), or "shapes" (contextual shapefile layers)

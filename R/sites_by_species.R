@@ -2,7 +2,7 @@
 #' 
 #' A data.frame is returned as grid cells by species with values in each cell being the number of occurrences of each species. No null (all zero) species should be returned. The coordinates returned are the TOP-LEFT corner of the grid cell.
 #'
-#' @references Associated web services: \url{https://layers.nbnatlas.org/ws}
+#' @references Associated web services: \url{https://spatial.bioatlas.se/ws}
 #' @references \url{http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html}
 #' 
 #' @param taxon string: the identifier to get the species data from the nbn biocache. E.g. "genus:Macropus". See \code{sbdi_fields("occurrence_stored")} for valid field names
@@ -19,8 +19,8 @@
 #' ",gridsize=0.1,verbose=TRUE)
 #' head(ss[,1:6])
 #' # equivalent direct POST webservice call:
-#' # https://layers.nbnatlas.org/ws/sitesbyspecies?speciesq=genus:Viola&qname=data&
-#' #  area=POLYGON((-3%2056,-4%2056,-4%2057,-3%2047,-3%2056))&bs=- https://records-ws.nbnatlas.org/
+#' # https://spatial.bioatlas.se/ws/sitesbyspecies?speciesq=genus:Viola&qname=data&
+#' #  area=POLYGON((-3%2056,-4%2056,-4%2057,-3%2047,-3%2056))&bs=- https://records.bioatlas.se/ws/
 #' #  ws/&movingaveragesize=1&gridsize=0.1&sitesbyspecies=1
 #'
 #' ## get the guid of the first species (which is the third column of the data frame, since the
