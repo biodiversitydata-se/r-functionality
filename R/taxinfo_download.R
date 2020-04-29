@@ -1,6 +1,6 @@
 #' Download taxonomic data
 #' 
-#' @references Associated NBN web service: \url{https://api.nbnatlas.org/#ws2}
+#' @references Associated SBDI web service: \url{https://api.nbnatlas.org/#ws2}
 #' 
 #' @param query string: (optional) query of the form field:value (e.g. "genus:Macropus") or a free text search ("Alaba vibex")
 #' @param fq string: character string or vector of strings, specifying filters to be applied to the original query. 

@@ -6,8 +6,8 @@
     
   temp <- getOption("ALA4R_server_config")
     
-  ## We need to overwrite the server configuration found in ALA4R package with NBN info and urls
-  ## Both APIs are the same (NBN has recently based their API on ALA)  
+  ## We need to overwrite the server configuration found in ALA4R package with SBDI info and urls
+  ## Both APIs are the same (SBDI has recently based their API on ALA)  
   ## Therefore this package is simply a wrapper around ALA4R functions and updates in ALA4R can be
   ## incorporated in SBDI4R
 

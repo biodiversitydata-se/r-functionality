@@ -1,6 +1,6 @@
 #' Search for environmental and contextual data layers
 #' 
-#' @references Associated NBN web services: \url{https://api.nbnatlas.org/#ws11} \url{https://api.nbnatlas.org/#ws12} \url{https://api.nbnatlas.org/#ws13}
+#' @references Associated SBDI web services: \url{https://api.nbnatlas.org/#ws11} \url{https://api.nbnatlas.org/#ws12} \url{https://api.nbnatlas.org/#ws13}
 #' @references Descriptions of the spatial layers: \url{https://layers.nbnatlas.org/ws/layers})
 #'
 #' @param query text string: optional search term against layer metadata. Only layers that include this term in their metadata will be returned.

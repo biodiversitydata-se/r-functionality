@@ -17,7 +17,7 @@
 #'   "http://id.biodiversity.org.au/node/apni/2890970"))
 #' }
 #'
-# @export # no api in NBN for this?
+# @export # no api in SBDI for this?
 fieldguide <- function(guids,title="Field guide",filename=tempfile(fileext=".pdf"),overwrite=FALSE) {
   
   ALA4R::fieldguide(guids,title,filename,overwrite) 

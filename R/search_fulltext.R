@@ -2,7 +2,7 @@
 #' 
 #' Performs a search across all objects, and selects the closest matches. Generally, the user will provide the search term via the \code{query} parameter, with optional filtering via \code{fq}.
 #'
-#' @references Associated NBN web service: \url{https://species-ws.nbnatlas.org/}
+#' @references Associated SBDI web service: \url{https://species-ws.nbnatlas.org/}
 #'  
 #' @param query string: the search term
 #' @param fq string: (optional) character string or vector of strings, specifying filters to be applied to the 
@@ -22,7 +22,7 @@
 #' 
 #' @examples
 #' \dontrun{
-#'  # find information NBN holds on red kangaroo
+#'  # find information SBDI holds on red kangaroo
 #'  search_fulltext("Rabbit")
 #'  search_fulltext("Macropus rufus")
 #'  search_fulltext("NHMSYS0000080188")

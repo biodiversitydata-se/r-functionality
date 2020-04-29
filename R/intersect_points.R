@@ -1,12 +1,12 @@
 #' Intersect environmental or contextual layers at a given a set of points (coordinates)
 #' 
-#' @references The associated NBN web service: \url{https://api.nbnatlas.org/#ws84}
+#' @references The associated SBDI web service: \url{https://api.nbnatlas.org/#ws84}
 #' @references Descriptions of the spatial layers: \url{https://layers.nbnatlas.org/layers/}
 #'
 #' This function allows the user to sample environmental/contextual layers at arbitrary locations. It complements 
 #' the \code{\link{occurrences}} function, which allows values of the same set of layers to be downloaded at 
 #' species occurrence locations.
-#' NOTE: batch requests (multiple points) are currently processed in a *single queue* on the NBN servers. Processing times may be slow if there are many requests in the queue. Note also that the actual processing of batch requests is inherently slow: a large number of points may take quite some time. Be warned.
+#' NOTE: batch requests (multiple points) are currently processed in a *single queue* on the SBDI servers. Processing times may be slow if there are many requests in the queue. Note also that the actual processing of batch requests is inherently slow: a large number of points may take quite some time. Be warned.
 #' @param pnts numeric: vector of latitude/longitude pairs, or a 2 column data.frame or matrix of lat,lons. NOTE: the number of locations must be less than 1000.
 #' @param layers string vector: ids of layers to be intersected. The list of possible layers is available from \code{nbn_fields("layers")}. Names can be passed as full layer names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Note: if more than one location has been provided in \code{pnts}, the number of layers must be less than 700. 
 #' @param SPdata.frame logical: should the output should be returned as a SpatialPointsDataFrame of the sp package or simply as a data.frame?

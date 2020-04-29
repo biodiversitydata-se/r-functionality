@@ -1,7 +1,7 @@
 #' Summarize, filter and subset occurrence data
 #' 
 #' Set of S3 methods to summarize, filter and get unique occurrence data retrieved using \code{\link{occurrences}}.
-#' This uses information based on selections of assertions (quality assurance issues NBN has identified), spatial and temporal data.
+#' This uses information based on selections of assertions (quality assurance issues SBDI has identified), spatial and temporal data.
 #' 
 #' @references \url{https://api.nbnatlas.org/}
 #' @references \url{http://stat.ethz.ch/R-manual/R-devel/library/methods/html/Methods.html}
