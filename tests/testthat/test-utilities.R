@@ -12,24 +12,24 @@ test_that("url builder works correctly", {
     expect_that(NBN4R:::build_url_from_parts("http://a.b",list(1,"ping")),equals("http://a.b/1/ping"))
 })
 
-test_that("nbn_cache_filename works as expected", {
+test_that("sbdi_cache_filename works as expected", {
     ## basic example
-    temp <- nbn_cache_filename("http://biocache.ala.org.au/ws/index/fields")
+    temp <- sbdi_cache_filename("http://biocache.ala.org.au/ws/index/fields")
     expect_that(sub(".*/","",temp),equals("b2fa59b0f3a1de10b06a17d8a1616059"))
     ## field ordering should not matter
-    expect_equal(nbn_cache_filename("abcdef?b=2&a=1"),nbn_cache_filename("abcdef?a=1&b=2"))
+    expect_equal(sbdi_cache_filename("abcdef?b=2&a=1"),sbdi_cache_filename("abcdef?a=1&b=2"))
     ## test weird inputs
-    expect_error(nbn_cache_filename(TRUE))
-    expect_error(nbn_cache_filename(letters[1:26]))
+    expect_error(sbdi_cache_filename(TRUE))
+    expect_error(sbdi_cache_filename(letters[1:26]))
 })
 
 test_that("caching messages change as expected ", {
     skip_on_cran()
-    nbn_config(caching="off")
+    sbdi_config(caching="off")
     expect_output(species_info("Diatoma tenuis",verbose=TRUE),"GETting URL")
-    nbn_config(caching="refresh")
+    sbdi_config(caching="refresh")
     expect_output(species_info("Diatoma tenuis",verbose=TRUE),"caching")
-    nbn_config(caching="on")
+    sbdi_config(caching="on")
     expect_output(species_info("Diatoma tenuis",verbose=TRUE),"using cached file")
 })
 
@@ -54,14 +54,14 @@ thischeck <- function() {
 }
 check_caching(thischeck)
 
-## not tested yet: nbn_config
+## not tested yet: sbdi_config
 
 thischeck = function() {
   test_that("arguments in NBN4R package match arguments in ALA4R package", {
     expect_named(formals(NBN4R:::build_url_from_parts),names(formals(ALA4R:::build_url_from_parts)),ignore.order = TRUE)
     expect_named(formals(NBN4R:::check_fq),names(formals(ALA4R:::check_fq)),ignore.order = TRUE)
     expect_named(formals(NBN4R:::extract_fq_fieldnames),names(formals(ALA4R:::extract_fq_fieldnames)),ignore.order = TRUE)
-    expect_named(formals(nbn_cache_filename),names(formals(ALA4R::ala_cache_filename)),ignore.order = TRUE)
+    expect_named(formals(sbdi_cache_filename),names(formals(ALA4R::ala_cache_filename)),ignore.order = TRUE)
   })
 }
 check_caching(thischeck)

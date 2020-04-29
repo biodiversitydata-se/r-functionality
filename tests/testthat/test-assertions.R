@@ -23,8 +23,8 @@ check_caching(thischeck)
 thischeck=function() {
     test_that("check_assertions gets all assertions in occurrences object", {
         skip_on_cran()
-        x=occurrences(taxon="Otis tarda",download_reason_id=10,qa=nbn_fields("assertions",as_is=TRUE)$name)    
-        expect_equal(length(setdiff(check_assertions(x)$name,nbn_fields("assertions",as_is=TRUE)$name)),0) ## expect all assertion fields in object to be in the list of master assertion fields 
+        x=occurrences(taxon="Otis tarda",download_reason_id=10,qa=sbdi_fields("assertions",as_is=TRUE)$name)    
+        expect_equal(length(setdiff(check_assertions(x)$name,sbdi_fields("assertions",as_is=TRUE)$name)),0) ## expect all assertion fields in object to be in the list of master assertion fields 
         x=occurrences(taxon="Otis tarda",download_reason_id=10,qa="none")
         expect_null(check_assertions(x)$name)
     })

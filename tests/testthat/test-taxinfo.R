@@ -8,10 +8,10 @@ thischeck=function() {
         expect_equal(names(tx),c("guid","genus","scientificName","rank"))
         expect_gte(nrow(tx),10) ## expect at least 10 results here
         ## matching is case-sensitive, so this should return no results
-        nbn_config(warn_on_empty=TRUE)
+        sbdi_config(warn_on_empty=TRUE)
         ## expect warning here
         expect_warning(tx <- taxinfo_download("rk_family:baetidae",fields=c("guid","rk_genus","scientificName","rank")))
-        nbn_config(warn_on_empty=FALSE)
+        sbdi_config(warn_on_empty=FALSE)
         tx <- taxinfo_download("rk_family:baetidae",fields=c("guid","rk_genus","scientificName","rank"))
         expect_equal(nrow(tx),0) ## expect no results here
         ## but names in data.frame should be consistent even when empty
@@ -26,7 +26,7 @@ check_caching(thischeck)
 thischeck=function() {
     test_that("taxinfo_download fields thingies work", {
         skip_on_cran()
-        f <- nbn_fields("general")
+        f <- sbdi_fields("general")
         t <- taxinfo_download("rk_family:Baetidae",fields="all")
         expect_equal(ncol(t),nrow(f))
     })
