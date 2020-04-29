@@ -88,22 +88,22 @@ y <- occurrences(taxon="taxon_name:\"Sialis lutaria\"",fields=c("latitude","long
 download_reason_id=10)
 str(y)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
-# https://records-ws.nbnatlas.org/occurrences/index/download?q=taxon_name\%
+# https://records.bioatlas.se/ws/occurrences/index/download?q=taxon_name\%
 # 3A\%22Sialis\%20lutaria\%22&fields=latitude\%2Clongitude\%2Cbasis_of_record&
 # reasonTypeId=10&sourceTypeId=2001&esc=\%5C&sep=\%09&file=data
 
 occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"),
   qa="none",fq="collector:Unknown",download_reason_id=10)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
-# https://records-ws.nbnatlas.org/occurrences/index/download?reasonTypeId=10&q=*:*&
+# https://records.bioatlas.se/ws/occurrences/index/download?reasonTypeId=10&q=*:*&
 # fq=genus:Vulpes&lat=51.5074&lon=0.1278&radius=10.0&qa=none&fields=latitude,longitude&
 # reasonTypeId=10&sourceTypeId=2001 
 }
 }
 \references{
 \itemize{
-\item Associated SBDI web service for record counts: \url{https://api.nbnatlas.org/#ws3}
-\item Associated SBDI web service for occurence downloads: \url{https://api.nbnatlas.org/#ws4}
+\item Associated SBDI web service for record counts: \url{https://api.bioatlas.se/#ws3}
+\item Associated SBDI web service for occurence downloads: \url{https://api.bioatlas.se/#ws4}
 \item Field definitions: \url{https://docs.google.com/spreadsheet/ccc?key=0AjNtzhUIIHeNdHhtcFVSM09qZ3c3N3ItUnBBc09TbHc}
 \item WKT reference: \url{http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html}
 }

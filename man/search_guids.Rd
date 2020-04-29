@@ -27,5 +27,5 @@ search_guids(c("NHMSYS0000376773",
 }
 }
 \references{
-The associated SBDI web service: \url{https://api.nbnatlas.org/#ws110}
+The associated SBDI web service: \url{https://api.bioatlas.se/#ws110}
 }

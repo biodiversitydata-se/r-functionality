@@ -30,7 +30,7 @@ Find SBDI species lists
 
 }
 \references{
-\url{https://lists.nbnatlas.org} and the associated web services at \url{https://lists.nbnatlas.org/ws}
+\url{https://lists.bioatlas.se} and the associated web services at \url{https://lists.bioatlas.se/ws}
 }
 \seealso{
 \code{\link{sbdi_list}}

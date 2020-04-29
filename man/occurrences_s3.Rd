@@ -85,7 +85,7 @@ summary(tt)
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+\url{https://api.bioatlas.se/}
 
 \url{http://stat.ethz.ch/R-manual/R-devel/library/methods/html/Methods.html}
 }

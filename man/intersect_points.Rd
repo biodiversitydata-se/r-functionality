@@ -38,7 +38,7 @@ Intersect environmental or contextual layers at a given a set of points (coordin
  pnts <- c(51.5074,0.1278)
  intersect_points(pnts,layers) 
  # equivalent direct web service call:
- # https://layers.nbnatlas.org/ws/intersect/cl23,cl14/51.5074/0.1278  
+ # https://spatial.bioatlas.se/ws/intersect/cl23,cl14/51.5074/0.1278
 
  # multiple points as a grid sampling multiple layers
  # i.e ancient woodland & watsonian vice counties:
@@ -48,9 +48,9 @@ Intersect environmental or contextual layers at a given a set of points (coordin
 }
 }
 \references{
-The associated SBDI web service: \url{https://api.nbnatlas.org/#ws84}
+The associated SBDI web service: \url{https://api.bioatlas.se/#ws84}
 
-Descriptions of the spatial layers: \url{https://layers.nbnatlas.org/layers/}
+Descriptions of the spatial layers: \url{https://spatial.bioatlas.se/layers/}
 
 This function allows the user to sample environmental/contextual layers at arbitrary locations. It complements 
 the \code{\link{occurrences}} function, which allows values of the same set of layers to be downloaded at 

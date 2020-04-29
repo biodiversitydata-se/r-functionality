@@ -30,7 +30,7 @@ Note that this refers to pre-generated lists of species stored on the SBDI serve
 
 }
 \references{
-\url{https://lists.nbnatlas.org} and the associated web services at \url{https://lists.nbnatlas.org/ws}
+\url{https://lists.bioatlas.se} and the associated web services at \url{https://lists.bioatlas.se/ws}
 }
 \seealso{
 \code{\link{specieslist}} \code{\link{sbdi_lists}}

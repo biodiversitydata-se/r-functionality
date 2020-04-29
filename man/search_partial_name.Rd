@@ -39,7 +39,7 @@ search_partial_name("Abac",geo_only=TRUE)
 }
 }
 \references{
-Associated SBDI web service: \url{https://api.nbnatlas.org/#ws25}
+Associated SBDI web service: \url{https://api.bioatlas.se/#ws25}
 }
 \seealso{
 \code{\link{search_names}} for searching known scientific or common taxonomic names

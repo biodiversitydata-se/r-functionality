@@ -53,5 +53,5 @@ search_names(c("Diatoma tenuis","Diatoma hyemale var. quadratum",
 }
 }
 \references{
-The associated SBDI web service: \url{https://api.nbnatlas.org/#ws87}
+The associated SBDI web service: \url{https://api.bioatlas.se/#ws87}
 }

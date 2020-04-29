@@ -51,10 +51,10 @@ Note for occurrence fields: only fields that are indexed in the SBDI database ca
 }
 \references{
 Relevant ALA web services: \itemize{
-\item for fields_type "occurrence": https://api.nbnatlas.org/#ws72
-\item for fields_type "general": https://api.nbnatlas.org/#ws88
-\item for fields_type "layers": https://api.nbnatlas.org/#ws11 (see also descriptions of the spatial layers: \url{https://layers.nbnatlas.org/layers/})
-\item for fields_type "assertions": https://api.nbnatlas.org/#ws81
+\item for fields_type "occurrence": https://api.bioatlas.se/#ws72
+\item for fields_type "general": https://api.bioatlas.se/#ws88
+\item for fields_type "layers": https://api.bioatlas.se/#ws11 (see also descriptions of the spatial layers: \url{https://spatial.bioatlas.se/ws/layers/})
+\item for fields_type "assertions": https://api.bioatlas.se/#ws81
 }
 }
 \seealso{

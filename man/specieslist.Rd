@@ -38,7 +38,7 @@ fq="kingdom:Plantae")
 }
 }
 \references{
-Associated SBDI web service: \url{https://api.nbnatlas.org/#ws78}
+Associated SBDI web service: \url{https://api.bioatlas.se/#ws78}
 
 \url{http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html}
 }

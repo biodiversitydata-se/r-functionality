@@ -46,13 +46,13 @@ x <- taxinfo_download("rk_genus:Macropus")
 ## Data for Fabaceae with specified fields
 x <- taxinfo_download("rk_family:Fabaceae",fields=c("guid","parentGuid","rk_kingdom","rk_phylum",
 "rk_class","rk_order","rk_family","rk_genus","scientificName"))
-# equivalent direct URL: https://species-ws.nbnatlas.org/download?q=rk_family\%3AFabaceae&fields=
+# equivalent direct URL: https://species.bioatlas.se/ws/download?q=rk_family\%3AFabaceae&fields=
 # guid\%2CparentGuid\%2Crk_kingdom\%2Crk_phylum\%2Crk_class\%2Crk_order\%2Crk_family\%2Crk_genus\%
 # 2CscientificName
 }
 }
 \references{
-Associated SBDI web service: \url{https://api.nbnatlas.org/#ws2}
+Associated SBDI web service: \url{https://api.bioatlas.se/#ws2}
 }
 \seealso{
 \code{\link{nbn_fields}}, \code{\link{nbn_config}}

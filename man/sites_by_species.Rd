@@ -36,8 +36,8 @@ ss <- sites_by_species(taxon="genus:Leutra",wkt="POLYGON((-3 56,-4 56,-4 57,-3 5
 ",gridsize=0.1,verbose=TRUE)
 head(ss[,1:6])
 # equivalent direct POST webservice call:
-# https://layers.nbnatlas.org/ws/sitesbyspecies?speciesq=genus:Viola&qname=data&
-#  area=POLYGON((-3\%2056,-4\%2056,-4\%2057,-3\%2047,-3\%2056))&bs=- https://records-ws.nbnatlas.org/
+# https://spatial.bioatlas.se/ws/ws/sitesbyspecies?speciesq=genus:Viola&qname=data&
+#  area=POLYGON((-3\%2056,-4\%2056,-4\%2057,-3\%2047,-3\%2056))&bs=- https://records.bioatlas.se/ws/
 #  ws/&movingaveragesize=1&gridsize=0.1&sitesbyspecies=1
 
 ## get the guid of the first species (which is the third column of the data frame, since the
@@ -47,7 +47,7 @@ attr(ss,"guid")[1]
 #@export
 }
 \references{
-Associated web services: \url{https://layers.nbnatlas.org/ws}
+Associated web services: \url{https://spatial.bioatlas.se/ws/ws}
 
 \url{http://www.geoapi.org/3.0/javadoc/org/opengis/referencing/doc-files/WKT.html}
 }
