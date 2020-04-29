@@ -61,7 +61,7 @@ thischeck=function() {
 check_caching(thischeck)
 
 thischeck = function() {
-  test_that("image_info arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("image_info arguments in SBDI4R package match arguments in ALA4R package", {
      expect_named(formals(image_info),names(formals(ALA4R::image_info)),ignore.order = TRUE)
     })
 }

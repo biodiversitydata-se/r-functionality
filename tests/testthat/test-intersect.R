@@ -50,7 +50,7 @@ thischeck <- function() {
 check_caching(thischeck)
 
 thischeck = function() {
-  test_that("intersect_points arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("intersect_points arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(intersect_points),names(formals(ALA4R::intersect_points)),ignore.order = TRUE)
   })
 }

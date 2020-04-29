@@ -43,7 +43,7 @@ thischeck=function() {
 check_caching(thischeck)
 
 thischeck = function() {
-  test_that("sbdi_fields arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("sbdi_fields arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(sbdi_fields),names(formals(ALA4R::ala_fields)),ignore.order = TRUE)
   })
 }

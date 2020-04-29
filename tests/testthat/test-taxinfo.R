@@ -34,7 +34,7 @@ thischeck=function() {
 check_caching(thischeck)
 
 thischeck = function() {
-  test_that("specieslist arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("specieslist arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(taxinfo_download),names(formals(ALA4R::taxinfo_download)),ignore.order = TRUE)
   })
 }
