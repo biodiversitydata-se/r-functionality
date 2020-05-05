@@ -1,10 +1,11 @@
 #' \pkg{SBDI4R}
 #'
-#' REWRITE This project enables the R community to access data and tools hosted by the 
-#' SBDI Atlas. The goal of the project is to enable basic species and related
-#' information to be queried and output in standard formats for R. 
+#' This project enables the R community to access data and tools hosted by the 
+#' Swedish Biodiversity Data Infrastructure (SBDI). The goal of the project is 
+#' to enable basic species and related information to be queried and output in 
+#' standard formats for R. 
 #' SBDI4R is based around the extensive web services provided 
-#' by the Atlas; see the API link below.
+#' by the BioAtlas Sweden; see the API link below.
 #' 
 #' @name SDBI4R
 #' @docType package

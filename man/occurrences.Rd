@@ -60,7 +60,7 @@ are not guaranteed to retain the ordering of the field names given here. If not 
 
 \item{use_data_table}{logical: if TRUE, attempt to read the data.csv file using the fread function from the data.table package. Requires data.table to be available. If this fails with an error or warning, or if use_data_table is FALSE, then read.table will be used (which may be slower)}
 
-\item{method}{string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned}
+\item{method}{DEPRECATED in ALA4R. string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned}
 }
 \value{
 Data frame of occurrence results, with one row per occurrence record. The columns of the dataframe will depend on the requested fields
@@ -92,8 +92,8 @@ str(y)
 # 3A\%22Sialis\%20lutaria\%22&fields=latitude\%2Clongitude\%2Cbasis_of_record&
 # reasonTypeId=10&sourceTypeId=2001&esc=\%5C&sep=\%09&file=data
 
-occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"),
-  qa="none",fq="collector:Unknown",download_reason_id=10)
+x<-occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"),
+                qa="none",download_reason_id=10, email = 'test@test.se')
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
 # https://records.bioatlas.se/ws/occurrences/index/download?reasonTypeId=10&q=*:*&
 # fq=genus:Vulpes&lat=51.5074&lon=0.1278&radius=10.0&qa=none&fields=latitude,longitude&

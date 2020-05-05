@@ -19,6 +19,7 @@
 #' @param \dots : other options passed to occurences()
 #' @return Data frame of occurrence results, with one row per occurrence record. The columns of the dataframe will depend on the requested fields. The data frame is plotted with ggplot and output stored as pdf, an interactive ggplot using plotly is displayed on-screen.
 #' @seealso \code{\link{sbdi_reasons}} for download reasons; \code{\link{sbdi_config}}
+#' @importFrom graphics layout
 #' @examples
 #' \dontrun{ 
 #' scatterplot(taxon="Ectocarpus siliculosus")

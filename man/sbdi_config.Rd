@@ -50,7 +50,7 @@ Get or set configuration options that control sbdi4R behaviour
 \references{
 \url{https://api.bioatlas.se/}
 
-\url{https://spatial.bioatlas.se/ws/layers/} this will eventually move to the api link
+\url{https://spatial.bioatlas.se/layers/} this will eventually move to the api link
 
 Invoking \code{sbdi_config()} with no arguments returns a list with the current values of the options.
 

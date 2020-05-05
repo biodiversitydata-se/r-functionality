@@ -29,5 +29,5 @@ search_layers(type="shapes",query="park",output_format="simple")
 \references{
 Associated SBDI web services: \url{https://api.bioatlas.se/#ws11} \url{https://api.bioatlas.se/#ws12} \url{https://api.bioatlas.se/#ws13}
 
-Descriptions of the spatial layers: \url{https://spatial.bioatlas.se/ws/ws/layers})
+Descriptions of the spatial layers: \url{https://spatial.bioatlas.se/ws/layers})
 }

@@ -74,7 +74,7 @@
 ## TODO: more extensive testing, particularly of the csv-conversion process
 ## TODO LATER: add params: lat, lon, radius (for specifying a search circle)
 
-occurrences <- function(taxon, wkt, fq, fields, extra, qa, email,
+occurrences <- function(taxon, wkt, fq, fields, extra, qa, email, method,
                         download_reason_id = sbdi_config()$download_reason_id, reason,
                         verbose = sbdi_config()$verbose, record_count_only = FALSE,
                         use_layer_names = TRUE, use_data_table = TRUE) {
