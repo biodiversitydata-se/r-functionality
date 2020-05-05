@@ -1,8 +1,8 @@
 #' Species lists
 #'
-#' Note that this refers to pre-generated lists of species stored on the NBN servers. The similarly-named but different function \code{\link{specieslist}} provides a different function, namely listing the species matching a query or recorded as present in a search area.
+#' Note that this refers to pre-generated lists of species stored on the SBDI servers. The similarly-named but different function \code{\link{specieslist}} provides a different function, namely listing the species matching a query or recorded as present in a search area.
 #'
-#' @references \url{https://lists.nbnatlas.org} and the associated web services at \url{https://lists.nbnatlas.org/ws}
+#' @references \url{https://lists.bioatlas.se} and the associated web services at \url{https://lists.bioatlas.se/ws}
 #' @param druid string: data resource UID of the list (i.e. the list identifier)
 #' @param kvp logical: include key-value pairs? Some lists contain information about the species in the form of key-value pairs
 #' @param verbose logical: show additional progress information? 
@@ -27,9 +27,9 @@ sbdi_list <- function(druid,kvp=TRUE,verbose=sbdi_config()$verbose){
 }
 
 
-#' Find NBN species lists
+#' Find SBDI species lists
 #'
-#' @references \url{https://lists.nbnatlas.org} and the associated web services at \url{https://lists.nbnatlas.org/ws}
+#' @references \url{https://lists.bioatlas.se} and the associated web services at \url{https://lists.bioatlas.se/ws}
 #' @param guid string: (optional) if provided, return only lists in which this GUID appears
 #' @param offset integer: the number of lists to skip. This supports paging
 #' @param max integer: the maximum number of lists to return. This supports paging

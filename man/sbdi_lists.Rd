@@ -2,7 +2,7 @@
 % Please edit documentation in R/sbdi_lists.R
 \name{sbdi_lists}
 \alias{sbdi_lists}
-\title{Find NBN species lists}
+\title{Find SBDI species lists}
 \usage{
 sbdi_lists(guid, offset = 0, max = 500, verbose = sbdi_config()$verbose)
 }
@@ -19,7 +19,7 @@ sbdi_lists(guid, offset = 0, max = 500, verbose = sbdi_config()$verbose)
 data.frame of list name and other details
 }
 \description{
-Find NBN species lists
+Find SBDI species lists
 }
 \examples{
 \dontrun{
@@ -30,7 +30,7 @@ Find NBN species lists
 
 }
 \references{
-\url{https://lists.nbnatlas.org} and the associated web services at \url{https://lists.nbnatlas.org/ws}
+\url{https://lists.bioatlas.se} and the associated web services at \url{https://lists.bioatlas.se/ws}
 }
 \seealso{
 \code{\link{sbdi_list}}

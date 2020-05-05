@@ -1,6 +1,6 @@
 #' Fetch a taxon profile given a scientific name or LSID (GUID)
 #' 
-#' @references Associated NBN web service: \url{https://api.nbnatlas.org/#ws80}
+#' @references Associated SBDI web service: \url{https://api.bioatlas.se/#ws80}
 #' 
 #' @param scientificname string: scientific name of the taxon of interest (species, genus, family etc) 
 #' @param guid string: The Life Science Identifier of the taxon of interest

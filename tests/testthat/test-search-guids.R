@@ -47,7 +47,7 @@ check_caching(thischeck)
 
 
 thischeck = function() {
-  test_that("search_guids arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("search_guids arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(search_guids),names(formals(ALA4R::search_guids)),ignore.order = TRUE)
   })
 }

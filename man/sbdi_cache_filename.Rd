@@ -22,7 +22,7 @@ sbdi_cache_filename("https://fieldguide.bioatlas.se/")
 
 }
 \references{
-\url{https://api.nbnatlas.org/}
+\url{https://api.bioatlas.se/}
 }
 \seealso{
 \code{sbdi_config} for cache settings, particularly the cache directory

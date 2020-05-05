@@ -61,7 +61,7 @@ thischeck=function() {
         expect_error(search_layers(type="bilbobaggins"))
         tmp <- search_layers(type = "shapes" ,query="World Heritage")
         expect_lt(nchar(tmp$shortName),nchar(tmp$name))
-        skip("NBN only has one type of layer 'Contextual' - but currently no warning if 'grids' type used")
+        skip("SBDI only has one type of layer 'Contextual' - but currently no warning if 'grids' type used")
         expect_warning(search_layers(type="grids"))
     })
 }
@@ -129,7 +129,7 @@ thischeck=function() {
 check_caching(thischeck)
 
 thischeck = function() {
-  test_that("search arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("search arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(search_names),names(formals(ALA4R::search_names)),ignore.order = TRUE)
     expect_named(formals(search_fulltext),names(formals(ALA4R::search_fulltext)),ignore.order = TRUE)
     expect_named(formals(search_layers),names(formals(ALA4R::search_layers)),ignore.order = TRUE)

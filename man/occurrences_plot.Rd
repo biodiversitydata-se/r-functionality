@@ -53,5 +53,5 @@ occurrences_plot(x,"nbnPlot.pdf",qa="fatal",grouped=FALSE, taxon_level="species"
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+\url{https://api.bioatlas.se/}
 }

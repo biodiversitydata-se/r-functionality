@@ -1,16 +1,16 @@
 context("Test occurrence-related functions")
 
-## nbn_reasons
+## sbdi_reasons
 thischeck <- function() {
-    test_that("nbn_reasons works as expected", {
+    test_that("sbdi_reasons works as expected", {
         skip_on_cran()
-        expect_named(nbn_reasons(),c("rkey","name","id"))
-        expect_equal(nrow(nbn_reasons()),12)
-        expect_equal(sort(nbn_reasons()$id),c(0:8,10:12))
-        expect_error(nbn_reasons(TRUE)) ## this should throw and error because there is an unused argument
-        tmp <- nbn_reasons()
-        expect_equal(NBN4R:::convert_reason("testing"),tmp$id[tmp$name=="testing"])
-        expect_error(NBN4R:::convert_reason("bilbobaggins"))
+        expect_named(sbdi_reasons(),c("rkey","name","id"))
+        expect_equal(nrow(sbdi_reasons()),12)
+        expect_equal(sort(sbdi_reasons()$id),c(0:8,10:12))
+        expect_error(sbdi_reasons(TRUE)) ## this should throw and error because there is an unused argument
+        tmp <- sbdi_reasons()
+        expect_equal(SBDI4R:::convert_reason("testing"),tmp$id[tmp$name=="testing"])
+        expect_error(SBDI4R:::convert_reason("bilbobaggins"))
     })
 }
 check_caching(thischeck)
@@ -96,7 +96,7 @@ check_caching(thischeck)
 thischeck <- function() {
     test_that("occurrences gives same results for offline and indexed methods", {
         skip_on_cran()
-        skip("offline method not working on NBN?")
+        skip("offline method not working on SBDI?")
         x1 <- occurrences(taxon="taxon_name:\"Leuctra geniculata\"",method="offline",download_reason_id="testing",email="ala4rtesting@test.org")
         x2 <- occurrences(taxon="taxon_name:\"Leuctra geniculata\"",download_reason_id="testing")
         expect_identical(arrange(x1$data,id),arrange(x2$data,id))
@@ -116,7 +116,7 @@ check_caching(thischeck)
 
 
 thischeck = function() {
-  test_that("occurrences arguments in NBN4R package match arguments in ALA4R package", {
+  test_that("occurrences arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(occurrences),names(formals(ALA4R::occurrences)),ignore.order = TRUE)
   })
 }
