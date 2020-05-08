@@ -12,6 +12,7 @@
 #' 
 #' @export sbdi_cache_filename
 sbdi_cache_filename <- function(url){
+  assert_that(is.string(url))
   
   ALA4R::ala_cache_filename(url)
 } 

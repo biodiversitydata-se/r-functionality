@@ -28,7 +28,7 @@ thischeck <- function() {
 check_caching(thischeck)
     
 
-thischeck = function() {
+thischeck <- function() {
   test_that("check_wkt arguments in SBDI4R package match arguments in ALA4R package", {
     expect_named(formals(SBDI4R:::check_wkt),names(formals(ALA4R:::check_wkt)),ignore.order = TRUE)
   })

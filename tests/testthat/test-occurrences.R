@@ -18,7 +18,10 @@ check_caching(thischeck)
 thischeck <- function() {
     test_that("occurrences summary works when no qa are present", {
         skip_on_cran()
-        expect_output(summary(occurrences(taxon="Leuctra geniculata",download_reason_id=10,qa="none")),"no assertion issues")
+        expect_output(summary(occurrences(taxon="Leuctra geniculata", 
+                                          download_reason_id=10,qa="none", 
+                                          email = "test@test.com")),
+                      "no assertion issues")
     })
 }
 check_caching(thischeck)
@@ -26,7 +29,9 @@ check_caching(thischeck)
 thischeck <- function() {
     test_that("occurrences summary gives something sensible", {
         skip_on_cran()
-        occ <- occurrences(taxon="Leuctra geniculata",download_reason_id=10)
+        occ <- occurrences(taxon="Leuctra geniculata",
+                           download_reason_id=10,
+                           email = "test@test.com")
         ## expect_output(summary(occ),"^number of original names")
         ## check that names required for summary.occurrences method are present
         expect_true(all(c("scientificName","scientificNameOriginal") %in% names(occ$data)) || all(c("taxonName","taxonNameOriginal") %in% names(occ$data)))
@@ -39,8 +44,17 @@ check_caching(thischeck)
 thischeck <- function() {
     test_that("occurrences retrieves the fields specified", {
         skip_on_cran()
-        expect_equal(sort(names(occurrences(taxon="Leuctra geniculata",fields=c("latitude","longitude"),qa="none",fq="basis_of_record:LivingSpecimen",download_reason_id=10)$data)),c("latitude","longitude"))
-        expect_error(occurrences(taxon="Leuctra geniculata",fields=c("blahblahblah"),download_reason_id=10))
+        expect_equal(sort(names(occurrences(taxon="Leuctra geniculata",
+                                            fields=c("latitude","longitude"),
+                                            qa="none",
+                                            # fq="basis_of_record:LivingSpecimen",
+                                            download_reason_id=10,
+                                            email = "test@test.com")$data)),
+                     c("latitude","longitude"))
+        expect_error(occurrences(taxon="Leuctra geniculata",
+                                 fields=c("blahblahblah"),
+                                 download_reason_id=10,
+                                 email = "test@test.com"))
     })
 }
 check_caching(thischeck)
@@ -49,7 +63,9 @@ check_caching(thischeck)
 thischeck <- function() {
     test_that("occurrences unique does something sensible", {
         skip_on_cran()
-        x <- occurrences(taxon="Leuctra geniculata",download_reason_id=10)
+        x <- occurrences(taxon="Leuctra geniculata",
+                         download_reason_id=10,
+                         email = "test@test.com")
         xu <- unique(x,spatial=0.1)
         expect_is(xu,"list")
         expect_named(xu,c("data","meta"))
@@ -64,7 +80,9 @@ check_caching(thischeck)
 thischeck <- function() {
     test_that("occurrences subset does something sensible", {
         skip_on_cran()
-        x <- occurrences(taxon="Otis tarda",download_reason_id=10)
+        x <- occurrences(taxon="Otis tarda",
+                         download_reason_id=10,
+                         email = "test@test.com")
         xs <- subset(x)
         expect_is(xs,"list")
         expect_named(xs,c("data","meta"))

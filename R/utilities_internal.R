@@ -1,6 +1,8 @@
 ## some utility functions used internally within the SBDI4R library: not exported
 
 ##----------------------------------------------------------------------------------------------
+empty <- function(x) {  ALA4R:::empty(x) }
+
 is.notempty.string <- function(x) {
   
    ALA4R:::is.notempty.string(x)

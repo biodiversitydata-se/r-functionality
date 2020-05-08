@@ -44,7 +44,7 @@
 
 sbdi_fields <- function(fields_type, as_is=TRUE) {
   
-  ALA4R::ala_fields(fields_type,as_is)
+  ALA4R::ala_fields(fields_type, as_is)
     
 }
 
@@ -57,9 +57,9 @@ field_info  <-  function(field_id,maxrows=50, record_count_only=FALSE) {
 
 ## private function to replace any full field names (descriptions) with their id values
 
-fields_name_to_id <- function(fields,fields_type,make_names=FALSE) {
+fields_name_to_id <- function(fields, fields_type, make_names=FALSE) {
   
-  ALA4R:::fields_name_to_id(fields,fields_type,make_names) 
+  ALA4R:::fields_name_to_id(fields, fields_type, make_names) 
 }
 
 ## private function to replace any id values with their full field names (descriptions)

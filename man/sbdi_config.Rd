@@ -2,10 +2,13 @@
 % Please edit documentation in R/sbdi_config.R
 \name{sbdi_config}
 \alias{sbdi_config}
+\alias{ala_config}
 \alias{sbdi_reasons}
 \title{Get or set configuration options that control sbdi4R behaviour}
 \usage{
 sbdi_config(...)
+
+ala_config(...)
 
 sbdi_reasons()
 }

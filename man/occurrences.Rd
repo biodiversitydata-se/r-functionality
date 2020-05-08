@@ -11,7 +11,8 @@ occurrences(
   fields,
   extra,
   qa,
-  email,
+  email = sbdi_config()$email,
+  method,
   download_reason_id = sbdi_config()$download_reason_id,
   reason,
   verbose = sbdi_config()$verbose,
@@ -42,49 +43,70 @@ OR field2:def"). See e.g. \url{http://wiki.apache.org/solr/CommonQueryParameters
 \item{fields}{string vector: (optional) a vector of field names to return. Note that the columns of the returned data frame 
 are not guaranteed to retain the ordering of the field names given here. If not specified, a default list of fields will be returned. See \code{sbdi_fields("occurrence_stored")} for valid field names with method \code{indexed}, and \code{sbdi_fields("occurrence")} for valid field names with method \code{offline}. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{fields="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
 
-\item{extra}{string vector: (optional) a vector of field names to include in addition to those specified in \code{fields}. This is useful if you would like the default list of fields (i.e. when \code{fields} parameter is not specified) plus some additional extras. See \code{sbdi_fields("occurrence_stored",as_is=TRUE)} for valid field names. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{extra="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
+\item{extra}{string vector: (optional) a vector of field names to include in 
+addition to those specified in \code{fields}. This is useful if you would like 
+the default list of fields (i.e. when \code{fields} parameter is not specified) 
+plus some additional extras. See \code{sbdi_fields("occurrence_stored",as_is=TRUE)} 
+for valid field names. Field names can be passed as full names (e.g. "Radiation
+ - lowest period (Bio22)") rather than id ("el871"). Use \code{extra="all"} 
+ to include all available fields, but note that \code{"all"} will probably 
+ cause an error with \code{method="offline"} because the request URL will exceed 
+ the maximum allowable length}
 
-\item{qa}{string vector: (optional) list of record issues to include in the download. Use \code{qa="all"} to include all available issues, or \code{qa="none"} to include none. Otherwise see \code{sbdi_fields("assertions",as_is=TRUE)} for valid values}
+\item{qa}{string vector: (optional) list of record issues to include in the 
+download. Use \code{qa="all"} to include all available issues, or \code{qa="none"} 
+to include none. Otherwise see \code{sbdi_fields("assertions",as_is=TRUE)} for valid values}
 
-\item{email}{string: the email address of the user performing the download (required for \code{method="offline"}}
+\item{email}{string: the email address of the user performing the download (required) 
+[default is set by sbdi_config()]}
 
-\item{download_reason_id}{numeric or string: (required unless record_count_only is TRUE) a reason code for the download, either as a numeric ID (currently 0--11) or a string (see \code{\link{sbdi_reasons}} for a list of valid ID codes and names). The download_reason_id can be passed directly to this function, or alternatively set using \code{sbdi_config(download_reason_id=...)}}
+\item{method}{DEPRECATED in ALA4R. string: "indexed" (default) or "offline". 
+In "offline" mode, more fields are available and larger datasets can be returned}
 
-\item{reason}{string: (optional) user-supplied description of the reason for the download. Providing this information is optional but will help the SBDI to better support users by building a better understanding of user communities and their data requests}
+\item{download_reason_id}{numeric or string: (required unless record_count_only is TRUE) 
+a reason code for the download, either as a numeric ID (currently 0--11) or a 
+string (see \code{\link{sbdi_reasons}} for a list of valid ID codes and names). 
+The download_reason_id can be passed directly to this function, or alternatively
+set using \code{sbdi_config(download_reason_id=...)}}
+
+\item{reason}{string: (optional) user-supplied description of the reason for the 
+download. Providing this information is optional but will help the SBDI to better 
+support users by building a better understanding of user communities and their data requests}
 
 \item{verbose}{logical: show additional progress information? [default is set by sbdi_config()]}
 
-\item{record_count_only}{logical: if TRUE, return just the count of records that would be downloaded, but don't download them. Note that the record count is always re-retrieved from the SBDI, regardless of the caching settings. If a cached copy of this query exists on the local machine, the actual data set size may therefore differ from this record count. \code{record_count_only=TRUE} can only be used with \code{method="indexed"}}
+\item{record_count_only}{logical: if TRUE, return just the count of records 
+that would be downloaded, but don't download them. Note that the record count
+ is always re-retrieved from the SBDI, regardless of the caching settings. If
+ a cached copy of this query exists on the local machine, the actual data set 
+ size may therefore differ from this record count. \code{record_count_only=TRUE} 
+ can only be used with \code{method="indexed"}}
 
-\item{use_layer_names}{logical: if TRUE, layer names will be used as layer column names in the returned data frame (e.g. "watsonianViceCounties"). Otherwise, layer id value will be used for layer column names (e.g. "cl23")}
+\item{use_layer_names}{logical: if TRUE, layer names will be used as layer 
+column names in the returned data frame (e.g. "watsonianViceCounties"). Otherwise, 
+layer id value will be used for layer column names (e.g. "cl10009")}
 
-\item{use_data_table}{logical: if TRUE, attempt to read the data.csv file using the fread function from the data.table package. Requires data.table to be available. If this fails with an error or warning, or if use_data_table is FALSE, then read.table will be used (which may be slower)}
-
-\item{method}{DEPRECATED in ALA4R. string: "indexed" (default) or "offline". In "offline" mode, more fields are available and larger datasets can be returned}
+\item{use_data_table}{logical: if TRUE, attempt to read the data.csv file using 
+the fread function from the data.table package. Requires data.table to be available. 
+If this fails with an error or warning, or if use_data_table is FALSE, then 
+read.table will be used (which may be slower)}
 }
 \value{
-Data frame of occurrence results, with one row per occurrence record. The columns of the dataframe will depend on the requested fields
+Data frame of occurrence results, with one row per occurrence record. 
+The columns of the dataframe will depend on the requested fields
 }
 \description{
 Retrieve SBDI occurrence data via the "occurrence download" web service. At least one of \code{taxon}, \code{wkt}, or \code{fq} must be supplied for a valid query. Note that there is a limit of 500000 records per request when using \code{method="indexed"}. Use the \code{method="offline"} for larger requests. For small requests, \code{method="indexed"} likely to be faster.
 }
 \examples{
 \dontrun{
-## count of records from this data provider
-x <- occurrences(taxon="data_resource_uid:dr356",record_count_only=TRUE)
-## download records, with standard fields
-x <- occurrences(taxon="data_resource_uid:dr356",download_reason_id=10)
-## download records, with all fields
-x <- occurrences(taxon="data_resource_uid:dr356",download_reason_id=10,
-  fields=sbdi_fields("occurrence_stored",as_is=TRUE)$name) 
-## download records, with specified fields
-x <- occurrences(taxon="genus:macropus",fields=c("longitude","latitude",
-  "common_name","taxon_name","Rights"),download_reason_id=10)
+x <- occurrences(taxon="genus:Accipiter",fields=c("decimalLongitude","decimalLatitude",
+  "vernacularName","taxonRank","rights"),download_reason_id=10)
  ## download records in polygon, with no quality assertion information
-x <- occurrences(taxon="genus:Sialis",wkt="POLYGON((-3 56,-4 56,-4 57,-3 57,-3 56))", 
-download_reason_id=10,qa="none",verbose = T)
+x <- occurrences(taxon="genus:Accipiter",wkt="POLYGON((-3 56,-4 56,-4 57,-3 57,-3 56))", 
+download_reason_id=10, qa="none",verbose = T)
 
-y <- occurrences(taxon="taxon_name:\"Sialis lutaria\"",fields=c("latitude","longitude","collector"),
+y <- occurrences(taxon="taxon_name:\"Accipiter gentilis\"",fields=c("decimalLatitude","decimalLongitude","recordedBy"),
 download_reason_id=10)
 str(y)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
@@ -92,8 +114,9 @@ str(y)
 # 3A\%22Sialis\%20lutaria\%22&fields=latitude\%2Clongitude\%2Cbasis_of_record&
 # reasonTypeId=10&sourceTypeId=2001&esc=\%5C&sep=\%09&file=data
 
-x<-occurrences(taxon="genus:\"Sialis\"",fields=c("latitude","longitude","collector"),
-                qa="none",download_reason_id=10, email = 'test@test.se')
+x<-occurrences(taxon="genus:\"Sialis\"",
+               fields=c("decimalLatitude","decimalLongitude","recordedBy"),
+               qa="none",download_reason_id=10)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
 # https://records.bioatlas.se/ws/occurrences/index/download?reasonTypeId=10&q=*:*&
 # fq=genus:Vulpes&lat=51.5074&lon=0.1278&radius=10.0&qa=none&fields=latitude,longitude&
