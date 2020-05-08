@@ -31,8 +31,10 @@
 #'  search_fulltext("oenanthe",sort_by="rk_kingdom",fq="rank:genus")
 #' }
 #' @export search_fulltext
-search_fulltext <- function(query, fq, output_format = "simple", start, page_size, sort_by, sort_dir) {
+search_fulltext <- function(query, fq="idxtype:TAXON", output_format = "simple", 
+                            start, page_size, sort_by, sort_dir) {
   
- ALA4R::search_fulltext(query, fq, output_format, start, page_size, sort_by, sort_dir)
+ ALA4R::search_fulltext(query, fq, output_format, 
+                        start, page_size, sort_by, sort_dir)
   
 }
