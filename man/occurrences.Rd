@@ -11,26 +11,41 @@ occurrences(taxon, wkt, fq, fields, extra, qa,
   use_layer_names = TRUE, use_data_table = TRUE)
 }
 \arguments{
-\item{taxon}{string: (optional) query of the form field:value (e.g. "genus:Macropus") or a free text search (e.g. "macropodidae"). Note that
-a free-text search is equivalent to specifying the "text" field (i.e. \code{taxon="Alaba"} is equivalent to \code{taxon="text:Alaba"}. 
-The text field is populated with the taxon name along with a handful of other commonly-used fields, and so just specifying your target
-taxon (e.g. taxon="Alaba vibex") will probably work. 
-However, for reliable results it is recommended to use a specific field where possible (see \code{sbdi_fields("occurrence_indexed")}
-for valid fields). It is also good practice to quote the taxon name if it contains multiple words, for example
+\item{taxon}{string: (optional) query of the form field:value (e.g. "genus:Macropus")
+ or a free text search (e.g. "macropodidae"). Note that a free-text search is 
+ equivalent to specifying the "text" field (i.e. \code{taxon="Alaba"} is equivalent 
+ to \code{taxon="text:Alaba"}. The text field is populated with the taxon name 
+ along with a handful of other commonly-used fields, and so just specifying your
+ target taxon (e.g. taxon="Alaba vibex") will probably work. However, for reliable 
+ results it is recommended to use a specific field where possible (see 
+ \code{sbdi_fields("occurrence_indexed")} for valid fields). It is also good 
+ practice to quote the taxon name if it contains multiple words, for example
 \code{taxon="taxon_name:\"Alaba vibex\""}}
 
-\item{wkt}{string: (optional) a WKT (well-known text) string providing a spatial polygon within which to search, e.g. "POLYGON((140 -37,151 -37,151 -26,140.131 -26,140 -37))"}
+\item{wkt}{string: (optional) a WKT (well-known text) string providing a spatial 
+polygon within which to search, e.g. "POLYGON((140 -37,151 -37,151 -26,140.131 -26,140 -37))"}
 
-\item{fq}{string: (optional) character string or vector of strings, specifying filters to be applied to the original query. These are of the form "INDEXEDFIELD:VALUE" e.g. "kingdom:Fungi". 
-See \code{sbdi_fields("occurrence_indexed",as_is=TRUE)} for all the fields that are queryable. 
+\item{fq}{string: (optional) character string or vector of strings, specifying 
+filters to be applied to the original query. These are of the form 
+"INDEXEDFIELD:VALUE" e.g. "kingdom:Fungi". See \code{sbdi_fields("occurrence_indexed", as_is=TRUE)} 
+for all the fields that are queryable. 
 NOTE that fq matches are case-sensitive, but sometimes the entries in the fields are 
 not consistent in terms of case (e.g. kingdom names "Fungi" and "Plantae" but "ANIMALIA"). 
 fq matches are ANDed by default (e.g. c("field1:abc","field2:def") will match records that have 
 field1 value "abc" and field2 value "def"). To obtain OR behaviour, use the form c("field1:abc 
-OR field2:def"). See e.g. \url{http://wiki.apache.org/solr/CommonQueryParameters} for more information about filter queries}
+OR field2:def"). See e.g. \url{http://wiki.apache.org/solr/CommonQueryParameters} 
+for more information about filter queries}
 
-\item{fields}{string vector: (optional) a vector of field names to return. Note that the columns of the returned data frame 
-are not guaranteed to retain the ordering of the field names given here. If not specified, a default list of fields will be returned. See \code{sbdi_fields("occurrence_stored")} for valid field names with method \code{indexed}, and \code{sbdi_fields("occurrence")} for valid field names with method \code{offline}. Field names can be passed as full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). Use \code{fields="all"} to include all available fields, but note that \code{"all"} will probably cause an error with \code{method="offline"} because the request URL will exceed the maximum allowable length}
+\item{fields}{string vector: (optional) a vector of field names to return. 
+Note that the columns of the returned data frame are not guaranteed to retain
+ the ordering of the field names given here. If not specified, a default list 
+ of fields will be returned. See \code{sbdi_fields("occurrence_stored")} for 
+ valid field names with method \code{indexed}, and \code{sbdi_fields("occurrence")} 
+ for valid field names with method \code{offline}. Field names can be passed as 
+ full names (e.g. "Radiation - lowest period (Bio22)") rather than id ("el871"). 
+ Use \code{fields="all"} to include all available fields, but note that 
+ \code{"all"} will probably cause an error with \code{method="offline"} because
+  the request URL will exceed the maximum allowable length}
 
 \item{extra}{string vector: (optional) a vector of field names to include in 
 addition to those specified in \code{fields}. This is useful if you would like 
@@ -44,10 +59,11 @@ for valid field names. Field names can be passed as full names (e.g. "Radiation
 
 \item{qa}{string vector: (optional) list of record issues to include in the 
 download. Use \code{qa="all"} to include all available issues, or \code{qa="none"} 
-to include none. Otherwise see \code{sbdi_fields("assertions",as_is=TRUE)} for valid values}
+to include none. Otherwise see \code{sbdi_fields("assertions",as_is=TRUE)} for
+valid values}
 
-\item{email}{string: the email address of the user performing the download (required) 
-[default is set by sbdi_config()]}
+\item{email}{(required) string: the email address of the user performing the 
+download  [default is set by sbdi_config()]}
 
 \item{method}{DEPRECATED in ALA4R. string: "indexed" (default) or "offline". 
 In "offline" mode, more fields are available and larger datasets can be returned}
@@ -60,9 +76,11 @@ set using \code{sbdi_config(download_reason_id=...)}}
 
 \item{reason}{string: (optional) user-supplied description of the reason for the 
 download. Providing this information is optional but will help the SBDI to better 
-support users by building a better understanding of user communities and their data requests}
+support users by building a better understanding of user communities and their
+data requests}
 
-\item{verbose}{logical: show additional progress information? [default is set by sbdi_config()]}
+\item{verbose}{logical: show additional progress information? 
+[default is set by sbdi_config()]}
 
 \item{record_count_only}{logical: if TRUE, return just the count of records 
 that would be downloaded, but don't download them. Note that the record count
@@ -89,13 +107,16 @@ Retrieve SBDI occurrence data via the "occurrence download" web service. At leas
 }
 \examples{
 \dontrun{
+
+x <- occurrences(taxon="data_resource_uid:dr5", download_reason_id="testing", fields="all")
 x <- occurrences(taxon="genus:Accipiter",fields=c("decimalLongitude","decimalLatitude",
   "vernacularName","taxonRank","rights"),download_reason_id=10)
  ## download records in polygon, with no quality assertion information
 x <- occurrences(taxon="genus:Accipiter",wkt="POLYGON((-3 56,-4 56,-4 57,-3 57,-3 56))", 
 download_reason_id=10, qa="none",verbose = T)
 
-y <- occurrences(taxon="taxon_name:\\"Accipiter gentilis\\"",fields=c("decimalLatitude","decimalLongitude","recordedBy"),
+y <- occurrences(taxon="taxon_name:\\"Accipiter gentilis\\"",
+fields=c("decimalLatitude","decimalLongitude","recordedBy"),
 download_reason_id=10)
 str(y)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:

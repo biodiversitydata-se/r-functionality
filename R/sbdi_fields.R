@@ -40,7 +40,7 @@
 #' @export sbdi_fields
 
 # TODO: Summary of #fields returned
-# ids from https://layers.sbdiatlas.org/ws/layers are NUMERIC but lookup prepends "el" and "cl"! 
+# ids from https://layers.bioatlas.se/ws/layers are NUMERIC but lookup prepends "el" and "cl"! 
 
 sbdi_fields <- function(fields_type, as_is=TRUE) {
   
