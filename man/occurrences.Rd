@@ -4,22 +4,11 @@
 \alias{occurrences}
 \title{Get occurrence data}
 \usage{
-occurrences(
-  taxon,
-  wkt,
-  fq,
-  fields,
-  extra,
-  qa,
-  email = sbdi_config()$email,
-  method,
-  download_reason_id = sbdi_config()$download_reason_id,
-  reason,
-  verbose = sbdi_config()$verbose,
-  record_count_only = FALSE,
-  use_layer_names = TRUE,
-  use_data_table = TRUE
-)
+occurrences(taxon, wkt, fq, fields, extra, qa,
+  email = sbdi_config()$email, method,
+  download_reason_id = sbdi_config()$download_reason_id, reason,
+  verbose = sbdi_config()$verbose, record_count_only = FALSE,
+  use_layer_names = TRUE, use_data_table = TRUE)
 }
 \arguments{
 \item{taxon}{string: (optional) query of the form field:value (e.g. "genus:Macropus") or a free text search (e.g. "macropodidae"). Note that
@@ -106,7 +95,7 @@ x <- occurrences(taxon="genus:Accipiter",fields=c("decimalLongitude","decimalLat
 x <- occurrences(taxon="genus:Accipiter",wkt="POLYGON((-3 56,-4 56,-4 57,-3 57,-3 56))", 
 download_reason_id=10, qa="none",verbose = T)
 
-y <- occurrences(taxon="taxon_name:\"Accipiter gentilis\"",fields=c("decimalLatitude","decimalLongitude","recordedBy"),
+y <- occurrences(taxon="taxon_name:\\"Accipiter gentilis\\"",fields=c("decimalLatitude","decimalLongitude","recordedBy"),
 download_reason_id=10)
 str(y)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:
@@ -114,7 +103,7 @@ str(y)
 # 3A\%22Sialis\%20lutaria\%22&fields=latitude\%2Clongitude\%2Cbasis_of_record&
 # reasonTypeId=10&sourceTypeId=2001&esc=\%5C&sep=\%09&file=data
 
-x<-occurrences(taxon="genus:\"Sialis\"",
+x<-occurrences(taxon="genus:\\"Sialis\\"",
                fields=c("decimalLatitude","decimalLongitude","recordedBy"),
                qa="none",download_reason_id=10)
 # equivalent direct webservice call [see this by setting sbdi_config(verbose=TRUE)]:

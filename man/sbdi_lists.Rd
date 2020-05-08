@@ -4,7 +4,8 @@
 \alias{sbdi_lists}
 \title{Find SBDI species lists}
 \usage{
-sbdi_lists(guid, offset = 0, max = 500, verbose = sbdi_config()$verbose)
+sbdi_lists(guid, offset = 0, max = 500,
+  verbose = sbdi_config()$verbose)
 }
 \arguments{
 \item{guid}{string: (optional) if provided, return only lists in which this GUID appears}
