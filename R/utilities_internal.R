@@ -63,7 +63,6 @@ clean_path <- function(...,sep="/") {
 ##  as single string: build_url_from_parts(base_url,"path/to/thing")
 ##  as a character vector or list: build_url_from_parts(base_url,c("path","to","thing"))
 ##  or a combination
-
 build_url_from_parts <- function(base_url,path=NULL,query=list()) {
   
   ALA4R:::build_url_from_parts(base_url,path,query)
