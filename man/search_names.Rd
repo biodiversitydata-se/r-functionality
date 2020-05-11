@@ -25,7 +25,7 @@ Note that this requires one extra web call for each name, and so may be slow. On
 \item{output_format}{string: controls the print method for the returned object (only has an effect when \code{guids_only} is FALSE). Either "complete" (the complete data structure is displayed), or "simple" (a simplified version is displayed). Note that the complete data structure exists in both cases: this option only controls what is displayed when the object is printed to the console. The default output format is "simple"}
 }
 \value{
-A data frame of results, or named list of GUIDs if \code{guids_only} is TRUE. The results should include one entry (i.e. one data.frame row or one list element) per input name. The columns in the data.frame output may vary depending on the results returned by the NBN server, but should include searchTerm, name, rank, and guid.
+A data frame of results, or named list of GUIDs if \code{guids_only} is TRUE. The results should include one entry (i.e. one data.frame row or one list element) per input name. The columns in the data.frame output may vary depending on the results returned by the SBDI server, but should include searchTerm, name, rank, and guid.
 }
 \description{
 Provides GUID, taxonomic classification, and other information for a list of names. 
@@ -53,5 +53,5 @@ search_names(c("Diatoma tenuis","Diatoma hyemale var. quadratum",
 }
 }
 \references{
-The associated NBN web service: \url{https://api.nbnatlas.org/#ws87}
+The associated SBDI web service: \url{https://api.bioatlas.se/#ws87}
 }

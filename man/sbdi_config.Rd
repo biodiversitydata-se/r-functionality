@@ -2,10 +2,13 @@
 % Please edit documentation in R/sbdi_config.R
 \name{sbdi_config}
 \alias{sbdi_config}
+\alias{ala_config}
 \alias{sbdi_reasons}
 \title{Get or set configuration options that control sbdi4R behaviour}
 \usage{
 sbdi_config(...)
+
+ala_config(...)
 
 sbdi_reasons()
 }
@@ -48,9 +51,9 @@ Get or set configuration options that control sbdi4R behaviour
 }
 }
 \references{
-\url{https://api.nbnatlas.org/}
+\url{https://api.bioatlas.se/}
 
-\url{https://layers.nbnatlas.org/layers/} this will eventually move to the api link
+\url{https://spatial.bioatlas.se/layers/} this will eventually move to the api link
 
 Invoking \code{sbdi_config()} with no arguments returns a list with the current values of the options.
 

@@ -12,11 +12,19 @@
 # @examples
 # \dontrun{
 # require(httr)
-# out <- GET(url="https://nbnatlas.org/")
+# out <- GET(url="https://bioatlas.se/")
 # check_status_code(out) ## pass the whole response object
 # check_status_code(out$headers$status) ## or pass the status code explicitly
 # }
-check_status_code <- function(x,on_redirect=NULL,on_client_error=NULL,on_server_error=NULL,extra_info="") {
-  ALA4R:::check_status_code(x,on_redirect,on_client_error,on_server_error,extra_info)
+check_status_code <- function(x,
+                              on_redirect=NULL,
+                              on_client_error=NULL,
+                              on_server_error=NULL,
+                              extra_info="") {
+  
+  ALA4R:::check_status_code(x,on_redirect,
+                            on_client_error,
+                            on_server_error,
+                            extra_info)
   
 }

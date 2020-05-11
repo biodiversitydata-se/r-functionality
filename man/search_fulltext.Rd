@@ -6,7 +6,7 @@
 \usage{
 search_fulltext(
   query,
-  fq,
+  fq = "idxtype:TAXON",
   output_format = "simple",
   start,
   page_size,
@@ -43,7 +43,7 @@ Performs a search across all objects, and selects the closest matches. Generally
 }
 \examples{
 \dontrun{
- # find information NBN holds on red kangaroo
+ # find information SBDI holds on red kangaroo
  search_fulltext("Rabbit")
  search_fulltext("Macropus rufus")
  search_fulltext("NHMSYS0000080188")
@@ -53,7 +53,7 @@ Performs a search across all objects, and selects the closest matches. Generally
 }
 }
 \references{
-Associated NBN web service: \url{https://species-ws.nbnatlas.org/}
+Associated SBDI web service: \url{https://species.bioatlas.se/ws/}
 }
 \seealso{
 \code{\link{sbdi_fields}}

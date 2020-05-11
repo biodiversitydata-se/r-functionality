@@ -1,6 +1,8 @@
-## some utility functions used internally within the NBN4R library: not exported 
+## some utility functions used internally within the SBDI4R library: not exported
 
 ##----------------------------------------------------------------------------------------------
+empty <- function(x) {  ALA4R:::empty(x) }
+
 is.notempty.string <- function(x) {
   
    ALA4R:::is.notempty.string(x)
@@ -25,7 +27,7 @@ clean_string <- function(x) {
 ##----------------------------------------------------------------------------------------------
 
 ##convert to camel case ... modified from help forum example
-## not exported for users: internal NBN4R use only
+## not exported for users: internal SBDI4R use only
 
 tocamel <- function(x, delim = "[^[:alnum:]]", upper = FALSE, sep = "") {
   
@@ -34,7 +36,7 @@ tocamel <- function(x, delim = "[^[:alnum:]]", upper = FALSE, sep = "") {
 
 ##----------------------------------------------------------------------------------------------
 
-## define column names that we will remove from the results because we don't think they will be useful in the NBN4R context
+## define column names that we will remove from the results because we don't think they will be useful in the SBDI4R context
 
 unwanted_columns <- function(type) {
   ALA4R:::unwanted_columns(type)
@@ -42,7 +44,7 @@ unwanted_columns <- function(type) {
 
 ##----------------------------------------------------------------------------------------------
 
-rename_variables <- function(varnames,type,verbose=nbn_config()$verbose) {
+rename_variables <- function(varnames,type,verbose=sbdi_config()$verbose) {
   
  ALA4R:::rename_variables(varnames,type,verbose) 
 }

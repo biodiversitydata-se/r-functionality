@@ -35,7 +35,7 @@ fieldguide(guids=
 
 }
 \references{
-\url{http://fieldguide.ala.org.au/}
+\url{http://fieldguide.bioatlas.se/}
 }
 \seealso{
 \code{\link{search_guids}}
