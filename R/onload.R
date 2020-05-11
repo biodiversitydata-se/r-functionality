@@ -33,10 +33,12 @@
     temp$base_url_images = "https://images.bioatlas.se/" ## the base url for the images database. Set to NULL or empty string if not available
     temp$base_url_logger = "https://logger.bioatlas.se/service/logger/" ## the base url for usage logging webservices
     temp$base_url_lists = "https://lists.bioatlas.se/ws/" ## base url for services for creating & editing lists of taxa
+    temp$base_url_collections = "https://collections.bioatlas.se/ws/" ## ADDED BY SBDI base url for listing dataresources and Institutions    
     
     ## override any other settings here
     options(ALA4R_server_config = temp)
     
+
     ##### OTHER WAY
     # if (!"ALA4R_server_config" %in% names(options())) {
     # message("\nNo existing ALA4R server config, using Swedish data sources...\n")

@@ -46,8 +46,8 @@
 
 scatterplot <- function(taxon, ...) {
   
-  df <- occurrences(taxon,...)
-  
+  df <- occurrences(taxon, ...)
+
   #Plotly - First test with lat vs. long
   plot_ly(df$data, x = ~longitude) %>%
     add_markers(y = ~latitude, name = "lat") %>%
