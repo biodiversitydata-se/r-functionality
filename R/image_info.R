@@ -26,7 +26,8 @@ download images. Please use images() instead of image_info()",
             call. = FALSE)
   }
   
-  suppressWarnings(ALA4R::image_info(id, verbose))
+  # suppressWarnings(ALA4R::image_info(id, verbose))
+  suppressWarnings(ALA4R::images(id, verbose))
   
 }
 

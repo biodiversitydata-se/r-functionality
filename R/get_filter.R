@@ -8,7 +8,7 @@ continue <- function(msg){
 
 
 #A messy function to get a vector of filter queries to use in functions asking for fq=. 
-getFilter <- function(type = NULL) {
+get_filter <- function(type = NULL) {
   
   continue <- TRUE
   res <- c()
@@ -90,5 +90,5 @@ getFilter <- function(type = NULL) {
 }
 
 
-getFilter("resource")
+# get_filter("resource")
 
