@@ -59,7 +59,7 @@ thischeck=function() {
         expect_that(nrow(search_layers(type="all")),is_more_than(50))
         expect_that(nrow(search_layers(type="all",query="bilbobaggins")),equals(0))
         expect_error(search_layers(type="bilbobaggins"))
-        tmp <- search_layers(type = "shapes" ,query="World Heritage")
+        tmp <- search_layers(type = "shapes", query="ekoregioner")
         expect_lt(nchar(tmp$shortName),nchar(tmp$name))
         skip("SBDI only has one type of layer 'Contextual' - but currently no warning if 'grids' type used")
         expect_warning(search_layers(type="grids"))
@@ -90,10 +90,10 @@ check_caching(thischeck)
 thischeck=function() {
     test_that("unexpected case-related behaviour in search_names has not changed", {
         skip_on_cran()
-        expect_equal(search_names("Leuctra geniculata")$name,"Leuctra geniculata")
-        expect_equal(search_names("Leuctra Geniculata")$name,"Leuctra geniculata")
-        expect_equal(search_names("Leuctra geniculat")$name,as.character(NA))
-        expect_equal(search_names("Leuctra Geniculat")$name,as.character(NA))
+        expect_equal(search_names("Leuctra digitata")$name,"Leuctra digitata Kempny, 1899")
+        expect_equal(search_names("Leuctra Digitata")$name,"Leuctra digitata Kempny, 1899")
+        expect_equal(search_names("Leuctra digitat")$name,as.character(NA))
+        expect_equal(search_names("Leuctra Digitat")$name,as.character(NA))
     })
 }
 check_caching(thischeck)
@@ -115,15 +115,15 @@ thischeck=function() {
         expect_equal(is.na(search_names(c("Leuctra geniculata","isdulfsadh"),occurrence_count=TRUE)$occurrenceCount),c(FALSE,TRUE))
         expect_output(print(search_names(c("Leuctra geniculata","isdulfsadh"),occurrence_count=TRUE)),"occurrenceCount")
         expect_null(search_names(c("Leuctra geniculata","isdulfsadh"),occurrence_count=FALSE)$occurrenceCount)
-        expect_equal(length(grep("occurrenceCount",capture.output(print(search_names(c("Leuctra geniculata","isdulfsadh"),occurrence_count=FALSE))))),0) ## "occurrenceCount" should not appear in the print(...) output
+        expect_equal(length(grep("occurrenceCount", 
+                                 capture.output(print(search_names(c("Leuctra geniculata","isdulfsadh"),
+                                                                   occurrence_count=FALSE))))),0) ## "occurrenceCount" should not appear in the print(...) output
 
         expect_false(is.list(search_names(c("blahblah"),occurrence_count=TRUE)$occurrenceCount))
         expect_false(is.list(search_names(c("blahblah","jdfhsdjk"),occurrence_count=TRUE)$occurrenceCount))
         expect_false(is.list(search_names(c("Leuctra geniculata","blahblah","jdfhsdjk"),occurrence_count=TRUE)$occurrenceCount))
         expect_false(is.list(search_names(c("Leuctra geniculata","Grevillea"),occurrence_count=TRUE)$occurrenceCount))
         expect_false(is.list(search_names(c("Leutra"),occurrence_count=TRUE)$occurrenceCount))
-
-        
     })
 }
 check_caching(thischeck)

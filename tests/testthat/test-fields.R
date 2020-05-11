@@ -6,8 +6,10 @@ thischeck <- function() {
         skip_on_cran()
         # print(nrow(sbdi_fields(fields_type="occurrence")))
         expect_gt(nrow(sbdi_fields(fields_type="occurrence")),350)
-        expect_lt(nrow(sbdi_fields(fields_type="occurrence_indexed")), nrow(sbdi_fields(fields_type="occurrence")))
-        expect_lt(nrow(sbdi_fields(fields_type="occurrence_stored")), nrow(sbdi_fields(fields_type="occurrence")))
+        expect_lt(nrow(sbdi_fields(fields_type="occurrence_indexed")), 
+                  nrow(sbdi_fields(fields_type="occurrence")))
+        expect_lt(nrow(sbdi_fields(fields_type="occurrence_stored")), 
+                  nrow(sbdi_fields(fields_type="occurrence")))
         expect_gt(nrow(sbdi_fields(fields_type="general")),40) ### How many field should it be in total? originally 75
         expect_gt(nrow(sbdi_fields(fields_type="assertions")),85)
         expect_gt(nrow(sbdi_fields(fields_type="layers")),50)

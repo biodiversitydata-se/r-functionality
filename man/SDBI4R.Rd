@@ -3,7 +3,6 @@
 \docType{package}
 \name{SDBI4R}
 \alias{SDBI4R}
-\alias{SDBI4R-package}
 \title{\pkg{SBDI4R}}
 \description{
 This project enables the R community to access data and tools hosted by the 

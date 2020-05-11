@@ -23,16 +23,19 @@ download_to_file <- function(url,
     ## file exists but is zero sized
     unlink(outfile)
   }
-  if (nchar(url)>getOption("ALA4R_server_config")$server_max_url_length) warning("URL length may be longer than is allowed by the server")
+  if (nchar(url) > getOption("ALA4R_server_config")$server_max_url_length) warning("URL length may be longer than is allowed by the server")
   
   ## are we using cached results?
   if ((caching %in% c("off", "refresh")) || (! file.exists(outfile))) {
     if (verbose && (caching != "off")) message(sprintf("Caching %s to file %s", url, outfile))
     ## either we are not using caching, or we want to refresh the cache, or the file doesn't exist in the cache
     if (verbose) {
-      get <- GET(url, write_disk(outfile, overwrite=TRUE), user_agent(sbdi_config()$user_agent), verbose(data_out=FALSE, data_in=FALSE, info=FALSE, ssl=FALSE)) 
+      get <- GET(url, write_disk(outfile, overwrite=TRUE), 
+                 user_agent(sbdi_config()$user_agent), 
+                 verbose(data_out=FALSE, data_in=FALSE, info=FALSE, ssl=FALSE)) 
     } else { 
-      get <- GET(url, write_disk(outfile, overwrite=TRUE), user_agent(sbdi_config()$user_agent)) }
+      get <- GET(url, write_disk(outfile, overwrite=TRUE), 
+                 user_agent(sbdi_config()$user_agent)) }
     status_code <- status_code(get)
     ## check http status here
     ## if unsuccessful, delete the file from the cache first, after checking if there's any useful info in the file body
@@ -46,7 +49,11 @@ download_to_file <- function(url,
       unlink(outfile)
     }
     ## check status code of response. Note that we execute the on_redirect etc functions, but we don't capture the output. might wish to implement this differently?
-    check_status_code(status_code, on_redirect=on_redirect, on_client_error=on_client_error, on_server_error=on_server_error, extra_info=diag_message)
+    check_status_code(status_code, 
+                      on_redirect=on_redirect, 
+                      on_client_error=on_client_error, 
+                      on_server_error=on_server_error, 
+                      extra_info=diag_message)
   } else {
     if (verbose) message(sprintf("Using cached file %s for %s", outfile, url))
   }
