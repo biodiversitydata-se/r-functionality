@@ -8,7 +8,7 @@ occurrences_plot(
   x,
   filename = "Rplots.pdf",
   qa = c("fatal", "error"),
-  sweLyr = "Gräns",
+  sweLyr = "Border",
   grouped = FALSE,
   taxon_level = "species",
   pch,
@@ -25,8 +25,8 @@ occurrences_plot(
 or 'all' or 'none' or any combination of 'error', 'warning' or 'fatal'. Column or categories in 
 your dataset can be viewed using \code{check_assertions}.}
 
-\item{sweLyr}{string: layer of sweWGS84 to be ploted as background. Options are =\code{c("Gräns" [default],
-"Län","LA_regioner","FA_regioner","Kommuner")}}
+\item{sweLyr}{string: layer of sweWGS84 to be ploted as background. Options are =\code{c("Border" [default],
+"Counties","LA_regions","FA_regions","Municipalities")}}
 
 \item{grouped}{logical: TRUE creates a single plot for all observations; FALSE plots individual 
 maps for the taxon level defined.}

@@ -11,8 +11,8 @@
 #' @param qa string vector: list of record issues to be mapped; these can be assertion columnnames, 
 #' or 'all' or 'none' or any combination of 'error', 'warning' or 'fatal'. Column or categories in 
 #' your dataset can be viewed using \code{check_assertions}. 
-#' @param sweLyr string: layer of sweWGS84 to be ploted as background. Options are =\code{c("Gräns" [default],
-#' "Län","LA_regioner","FA_regioner","Kommuner")}
+#' @param sweLyr string: layer of sweWGS84 to be ploted as background. Options are =\code{c("Border" [default],
+#' "Counties","LA_regions","FA_regions","Municipalities")}
 #' @param grouped logical: TRUE creates a single plot for all observations; FALSE plots individual 
 #' maps for the taxon level defined.
 #' @param taxon_level string: taxonomic level at which to create maps; possible values are 'species', 
@@ -22,7 +22,7 @@
 #' @param \dots : other options passed to pdf()
 #' @return Generates a pdf that maps the distributions.
 #' @seealso \code{\link{sweWGS84}} 
-#' @importFrom sp plot
+#' @importFrom sp plot degAxis
 #' 
 #' @examples
 #' \dontrun{ 
@@ -34,7 +34,7 @@
 #'                  grouped=FALSE, taxon_level="species",pch='+')
 #' }
 #' @export occurrences_plot
-occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"), sweLyr="Gräns",
+occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"), sweLyr="Border",
                              grouped = FALSE, taxon_level = "species", pch, cex = 0.75, ...) {
   if (nrow(x$data) > 500) message("You have lots of data points, this can take a while.")
   # ALA4R::occurrences_plot(x, filename, qa,grouped, taxon_level, pch, cex, ...)
@@ -44,8 +44,8 @@ occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"
                                          getOption("ALA4R_server_config")$brand, " package")
   assert_that(is.string(sweLyr))
   if (!sweLyr %in% c("Gräns","Län","LA_regioner","FA_regioner","Kommuner")){
-    warning("'sweLyr' must be one of the following options: 'Gräns','Län','LA_regioner','FA_regioner','Kommuner'.
-            Gräns is taken as default")  
+    warning("'sweLyr' must be one of the following options: 'Border','Counties',
+    'LA_regions','FA_regions','Municipalities'. 'Border' is taken as default")  
   }
   assert_that(is.string(taxon_level))
   taxon_level <- match.arg(tolower(taxon_level), c("species", "genus", "family", "order"))
@@ -94,11 +94,12 @@ occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"
   ## note this should ideally be states        
   swe <- NULL
   data("sweWGS84", package="SBDI4R", envir=environment())
+  swe <- sweWGS84
 
   ###plot function to be used
   tplot <- function(xx, Main, coi, pch) {
-    sp::plot(sweWGS84[[sweLyr]], col="grey", 
-         border=ifelse(sweLyr == "Gräns", NA, 1)) #draw the base Sweden
+    plot(swe[[sweLyr]], col="grey", 
+         border=ifelse(sweLyr == "Border", NA, 1)) #draw the base Sweden
     title(main=Main)
     degAxis(1); degAxis(2) #add on the axis
     points(xx$longitude, xx$latitude, pch=pch, col="black")
