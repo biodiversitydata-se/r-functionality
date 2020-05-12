@@ -38,6 +38,7 @@ occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"
                              grouped = FALSE, taxon_level = "species", pch, cex = 0.75, ...) {
   if (nrow(x$data) > 500) message("You have lots of data points, this can take a while.")
   # ALA4R::occurrences_plot(x, filename, qa,grouped, taxon_level, pch, cex, ...)
+
   if (! inherits(x, "occurrences")) stop("occurrences_plot must have an object of class occurrences from e.g. ", 
                                          getOption("ALA4R_server_config")$occurrences_function, "() in the ", 
                                          getOption("ALA4R_server_config")$brand, " package")
