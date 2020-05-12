@@ -8,6 +8,7 @@ occurrences_plot(
   x,
   filename = "Rplots.pdf",
   qa = c("fatal", "error"),
+  sweLyr = "Gräns",
   grouped = FALSE,
   taxon_level = "species",
   pch,
@@ -23,6 +24,9 @@ occurrences_plot(
 \item{qa}{string vector: list of record issues to be mapped; these can be assertion columnnames, 
 or 'all' or 'none' or any combination of 'error', 'warning' or 'fatal'. Column or categories in 
 your dataset can be viewed using \code{check_assertions}.}
+
+\item{sweLyr}{string: layer of sweWGS84 to be ploted as background. Options are =\code{c("Gräns" [default],
+"Län","LA_regioner","FA_regioner","Kommuner")}}
 
 \item{grouped}{logical: TRUE creates a single plot for all observations; FALSE plots individual 
 maps for the taxon level defined.}
@@ -40,18 +44,23 @@ maps for the taxon level defined.}
 Generates a pdf that maps the distributions.
 }
 \description{
-Generates a plot of occurrence data retrieved using \code{\link{occurrences}}.The plot uses
-an Australian basemap and colours the occurrence records dots according to parameters
+Generates a plot of occurrence data retrieved using \code{\link{occurrences}}. 
+The plot uses a Swedish basemap and colours the occurrence records dots 
+according to parameters
 }
 \examples{
 \dontrun{ 
 #download some observations
-x <- occurrences(taxon="Lutra lutra",download_reason_id=10)
+x <- occurrences(taxon="Lutra lutra", download_reason_id=10) ## remember to configure your email
 occurrences_plot(x)
-x <- occurrences(taxon="Mayfly",download_reason_id=10)
-occurrences_plot(x,"nbnPlot.pdf",qa="fatal",grouped=FALSE, taxon_level="species",pch='+')
+x <- occurrences(taxon="Mayfly", download_reason_id=10)
+occurrences_plot(x,"nbnPlot.pdf",qa="fatal", 
+                 grouped=FALSE, taxon_level="species",pch='+')
 }
 }
 \references{
 \url{https://api.bioatlas.se/}
+}
+\seealso{
+\code{\link{sweWGS84}}
 }
