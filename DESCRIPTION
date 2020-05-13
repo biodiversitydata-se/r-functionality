@@ -12,6 +12,7 @@ Authors@R: c(person("Debora","Arlt", email="debora.arlt@slu.se", role=c("aut","c
 	   person("Sophia","Ratcliffe",role="ctb"),
 	   person("Tom","August",role="ctb"),
 	   person("XX","YY",role="ctb"))
+
 Maintainer: Debora Arlt <debora.arlt@slu.se>
 Description: SBDI Bioatlas provides tools to enable users
     of biodiversity information to find, access, combine and visualise data on
