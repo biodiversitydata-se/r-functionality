@@ -20,7 +20,7 @@
 #' @param pch single number or character representing point type. See description of \code{pch} in \code{\link{points}}.
 #' @param cex numeric: character (or symbol) expansion. See description of \code{cex} in \code{\link{points}}.
 #' @param \dots : other options passed to pdf()
-#' @return Generates a pdf that maps the distributions.
+#' @return Generates a pdf that maps the distributions of the observations.
 #' @seealso \code{\link{sweWGS84}} 
 #' @importFrom sp plot degAxis
 #' 
@@ -43,9 +43,11 @@ occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"
                                          getOption("ALA4R_server_config")$occurrences_function, "() in the ", 
                                          getOption("ALA4R_server_config")$brand, " package")
   assert_that(is.string(sweLyr))
-  if (!sweLyr %in% c("Gräns","Län","LA_regioner","FA_regioner","Kommuner")){
+  if (!sweLyr %in% c("Border","Counties","LA_regions","FA_regions","Municipalities")){
+    
     warning("'sweLyr' must be one of the following options: 'Border','Counties',
     'LA_regions','FA_regions','Municipalities'. 'Border' is taken as default")  
+    
   }
   assert_that(is.string(taxon_level))
   taxon_level <- match.arg(tolower(taxon_level), c("species", "genus", "family", "order"))
@@ -93,8 +95,8 @@ occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"
   ## load swe map data
   ## note this should ideally be states        
   swe <- NULL
-  data("sweWGS84", package="SBDI4R", envir=environment())
-  swe <- sweWGS84
+  data("swe_wgs84", package="SBDI4R", envir=environment())
+  swe <- swe_wgs84
 
   ###plot function to be used
   tplot <- function(xx, Main, coi, pch) {

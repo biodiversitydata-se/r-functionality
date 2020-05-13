@@ -41,7 +41,7 @@ maps for the taxon level defined.}
 \item{\dots}{: other options passed to pdf()}
 }
 \value{
-Generates a pdf that maps the distributions.
+Generates a pdf that maps the distributions of the observations.
 }
 \description{
 Generates a plot of occurrence data retrieved using \code{\link{occurrences}}. 

@@ -197,7 +197,7 @@ occurrences <- function(taxon, wkt, fq, fields, extra, qa,
     temp_query$facet <- "off"
     this_url <- build_url_from_parts(
       getOption("ALA4R_server_config")$base_url_biocache,
-      c("occurrences","search"),query=temp_query)
+      c("occurrences","search"), query = temp_query)
     return(cached_get(url=this_url,type="json",caching="off",
                       verbose=verbose)$totalRecords)
   } else {
@@ -237,10 +237,10 @@ occurrences <- function(taxon, wkt, fq, fields, extra, qa,
   }
   if (!missing(extra)) {
     assert_that(is.character(extra))
-    valid_fields <- sbdi_fields(fields_type=valid_fields_type,as_is=TRUE)
+    valid_fields <- sbdi_fields(fields_type = valid_fields_type, as_is=TRUE)
     if (identical(tolower(extra),"all")) extra <- valid_fields$name
     ## replace long names with ids
-    extra <- fields_name_to_id(fields=extra,fields_type="occurrence") 
+    extra <- fields_name_to_id(fields=extra, fields_type = "occurrence") 
     unknown <- setdiff(extra,valid_fields$name)
     if (length(unknown)>0) {
       stop("invalid extra fields requested: ",
@@ -301,10 +301,14 @@ occurrences <- function(taxon, wkt, fq, fields, extra, qa,
            getOption("ALA4R_server_config")$notify)
     }
     this_status_url <- status$statusUrl
-    status <- cached_get(this_status_url,caching="off",type="json",
+    status <- cached_get(this_status_url, 
+                         caching="off",
+                         type="json",
                          verbose=verbose)
     while (tolower(status$status) %in% c("inqueue","running")) {
-      status <- cached_get(this_status_url,caching="off",type="json",
+      status <- cached_get(this_status_url, 
+                           caching="off", 
+                           type="json",
                            verbose=verbose)
       Sys.sleep(2)
     }
@@ -440,7 +444,7 @@ occurrences <- function(taxon, wkt, fq, fields, extra, qa,
       names(x) <- rename_variables(names(x),type="assertions")
       names(x) <- rename_variables(names(x),type="occurrence")
       ## remove unwanted columns
-      xcols <- setdiff(names(x),unwanted_columns("occurrence"))
+      xcols <- setdiff(names(x), unwanted_columns("occurrence"))
       x <- subset(x,select=xcols)
       ## also read the citation info
       ## this file won't exist if there are no rows in the data.csv file,

@@ -15,10 +15,10 @@ NULL
 #' A basic polygon dataset in SpatialPolygons (package sp) representing
 #' Sweden.
 #' 
-#' @name sweWGS84
+#' @name swe_wgs84
 #' @keywords datasets
 #' @docType data
-#' @usage data(sweWGS84)
+#' @usage data(swe_wgs84)
 #' @source Statistikmyndigheten SCB \url{https://www.scb.se/hitta-statistik/regional-statistik-och-kartor/regionala-indelningar/digitala-granser}
 #' @format SpatialPolygons (package sp) CRS: EPSG:4326
 
