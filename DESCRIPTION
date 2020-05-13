@@ -1,13 +1,25 @@
 Package: SBDI4R
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Swedish Biodiversity Data Infrastructure Data and Resources in R
 Version: 0.0.0.9000
 URL: https://github.com/bioatlas/r-functionality/
 BugReports: https://github.com/bioatlas/r-functionality/issues
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Author: c(person("Debora","Arlt", email="debora.arlt@slu.se", role=c("aut","cre")),
+	   person("Alejandro","Ruete",role="aut"),
+	   person("Anton","Hammarström",role="aut"),
+	   person("Marcus","Lindh",role="aut"),
+	   person("Manash","Shah",role="ctb"),
+	   person("Sophia","Ratcliffe",role="ctb"),
+	   person("Tom","August",role="ctb"),
+	   person("XX","YY",role="ctb"))
+Description: SBDI Bioatlas provides tools to enable users
+    of biodiversity information to find, access, combine and visualise data on
+    Sweden plants, animals and fungi; these have been made available from
+    <https://bioatlas.se/>. SBDI4R provides a subset of the tools based on the 
+    ALA4R package, and a few functions custom made for Sweden, which can be 
+    directly used within R. It enables the R community to directly access data 
+    and resources hosted by the SBDI. Our goal is to enable outputs (e.g. 
+    observations of species) to be queried and output in a range of standard formats.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

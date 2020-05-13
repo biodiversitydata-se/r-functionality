@@ -21,7 +21,7 @@
 #' @param cex numeric: character (or symbol) expansion. See description of \code{cex} in \code{\link{points}}.
 #' @param \dots : other options passed to pdf()
 #' @return Generates a pdf that maps the distributions of the observations.
-#' @seealso \code{\link{sweWGS84}} 
+#' @seealso \code{\link{swe_wgs84}} 
 #' @importFrom sp plot degAxis
 #' 
 #' @examples
@@ -94,13 +94,12 @@ occurrences_plot <- function(x, filename = "Rplots.pdf", qa = c("fatal", "error"
   
   ## load swe map data
   ## note this should ideally be states        
-  swe <- NULL
+  swe_wgs84 <- NULL
   data("swe_wgs84", package="SBDI4R", envir=environment())
-  swe <- swe_wgs84
 
   ###plot function to be used
   tplot <- function(xx, Main, coi, pch) {
-    plot(swe[[sweLyr]], col="grey", 
+    plot(swe_wgs84[[sweLyr]], col="grey", 
          border=ifelse(sweLyr == "Border", NA, 1)) #draw the base Sweden
     title(main=Main)
     degAxis(1); degAxis(2) #add on the axis
