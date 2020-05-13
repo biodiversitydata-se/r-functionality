@@ -62,5 +62,5 @@ occurrences_plot(x,"nbnPlot.pdf",qa="fatal",
 \url{https://api.bioatlas.se/}
 }
 \seealso{
-\code{\link{sweWGS84}}
+\code{\link{swe_wgs84}}
 }
