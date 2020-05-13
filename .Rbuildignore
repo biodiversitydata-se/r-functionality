@@ -5,3 +5,4 @@
 ^sbdi4r\.Rcheck$
 ^sbdi4r.*\.tar\.gz$
 ^sbdi4r.*\.tgz$
+^docs/

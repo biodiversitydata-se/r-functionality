@@ -8,7 +8,7 @@
 #' @return string: the file path and name
 #' 
 #' @examples
-#' sbdi_cache_filename("https://fieldguide.bioatlas.se/")
+#' sbdi_cache_filename("https://spatial.bioatlas.se/")
 #' 
 #' @export sbdi_cache_filename
 sbdi_cache_filename <- function(url){
