@@ -18,7 +18,7 @@ Returns the name of the cache file associated with the given URL. Note that this
 may not actually exist, this function just provides the mapping from URL to filename
 }
 \examples{
-sbdi_cache_filename("https://fieldguide.bioatlas.se/")
+sbdi_cache_filename("https://spatial.bioatlas.se/")
 
 }
 \references{

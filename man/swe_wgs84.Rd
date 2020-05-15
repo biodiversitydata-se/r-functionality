@@ -6,7 +6,9 @@
 \title{Basic Sweden polygon for visualization
 A basic polygon dataset in SpatialPolygons (package sp) representing
 Sweden.}
-\format{SpatialPolygons (package sp) CRS: EPSG:4326}
+\format{
+SpatialPolygons (package sp) CRS: EPSG:4326
+}
 \source{
 Statistikmyndigheten SCB \url{https://www.scb.se/hitta-statistik/regional-statistik-och-kartor/regionala-indelningar/digitala-granser}
 }

@@ -1,13 +1,9 @@
-continue <- function(msg){
-  print(msg)
-  r <- readline()
-  r <- tolower(r)
-  return(any(c("yes", "y") %in% r))
-}
+
 
 
 
 #A messy function to get a vector of filter queries to use in functions asking for fq=. 
+#TODO integrate with specieslists, search_layers, and create search_resources
 get_filter <- function(type = NULL) {
   
   continue <- TRUE
@@ -26,7 +22,7 @@ get_filter <- function(type = NULL) {
       # this_url <- SBDI4R:::build_url_from_parts(getOption("ALA4R_server_config")$base_url_collections, 
       #                                                               c("dataResource"))
       
-      this_url <- ALA4R:::build_url_from_parts(getOption("ALA4R_server_config")$base_url_collections, 
+      this_url <- SBDI4R:::build_url_from_parts(getOption("ALA4R_server_config")$base_url_collections, 
                                                c("dataResource"))
       
       
@@ -89,6 +85,4 @@ get_filter <- function(type = NULL) {
   
 }
 
-
-# get_filter("resource")
 
