@@ -6,6 +6,9 @@
 \usage{
 continue(msg)
 }
+\arguments{
+\item{msg}{the message to pass to the function}
+}
 \description{
 auxiliary function
 }

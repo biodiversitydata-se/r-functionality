@@ -7,24 +7,20 @@
 pick_filter(type = NULL)
 }
 \arguments{
-\item{type}{string: (optional) type of filter to create query string for. 
-Options are \code{c(resource", "specieslist" , "layer")} . Species lists 
-are waiting development from the API side.}
+\item{type}{string: (optional) type of filter to create query string for. Options are \code{c("resource", "specieslist" , "layer")}. Species lists are waiting development from the API side.}
 }
 \value{
-a string ready to be places in the argument \sQuote{fq} in function 
-\code{\link{occurrences}}.
+a string ready to be places in the argument \sQuote{fq} in function \code{\link{occurrences}}.
 }
 \description{
 Lists and lets the user interactivelly pick a filter from lists.
 }
 \examples{
 \dontrun{
-fq_str<-pick_filter("resource") #data_resource_uid:dr5
+fq_str <- pick_filter("resource") #"data_resource_uid:dr5"
 x <- occurrences(taxon="genus:Accipiter", 
                   download_reason_id=10,
-                  fq=fq_str,
-                  fields="all")
+                  fq=fq_str)
 }
 }
 \seealso{
